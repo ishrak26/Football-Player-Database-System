@@ -1,4 +1,4 @@
-package server;
+package server.server;
 
 public class serverWindowController {
 }
