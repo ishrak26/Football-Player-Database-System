@@ -3,7 +3,6 @@ package client;
 import util.NetworkUtil;
 
 import java.io.IOException;
-import java.net.Socket;
 
 public class Client {
     public Client(String address, int port) {
