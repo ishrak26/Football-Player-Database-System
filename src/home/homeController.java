@@ -1,4 +1,4 @@
-package server.server;
+package home;
 
-public class serverWindowController {
+public class homeController {
 }
