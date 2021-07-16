@@ -16,6 +16,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class clubWindowController implements Initializable {
@@ -120,10 +121,8 @@ public class clubWindowController implements Initializable {
         FileOperations file = new FileOperations();
         try {
             file.readFromFile(db);
-            for (Player p: db.getPlayerList()
-                 ) {
-                tableData.add(p);
-            }
+            List<Player> playerList = db.getPlayerList();
+            tableData.addAll(playerList);
             playersTable.setItems(tableData);
         } catch (Exception e) {
             e.printStackTrace();

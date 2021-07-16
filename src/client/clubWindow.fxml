@@ -10,12 +10,13 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.TreeView?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Region?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.clubWindowController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="673.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.clubWindowController">
    <top>
       <HBox fx:id="topHBox" BorderPane.alignment="CENTER">
          <children>
@@ -56,18 +57,31 @@
       </HBox>
    </top>
    <left>
-      <VBox fx:id="leftVBox" BorderPane.alignment="CENTER">
+      <VBox fx:id="leftVBox" prefHeight="310.0" prefWidth="184.0" BorderPane.alignment="CENTER">
          <children>
-            <HBox>
+            <AnchorPane prefHeight="19.0" prefWidth="184.0">
                <children>
-                  <Label fx:id="filterLabel" text="Filter by:">
+                  <Label fx:id="filterLabel" prefHeight="22.0" prefWidth="65.0" text="Filter by:">
                      <padding>
-                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                        <Insets bottom="4.0" left="10.0" right="5.0" top="4.0" />
                      </padding>
                   </Label>
                </children>
-            </HBox>
-            <TreeView fx:id="filterTree" prefHeight="228.0" prefWidth="113.0" />
+            </AnchorPane>
+            <TreeView fx:id="filterTree" prefHeight="147.0" prefWidth="184.0" />
+            <AnchorPane prefHeight="100.0" prefWidth="643.0">
+               <children>
+                  <Label layoutX="14.0" layoutY="14.0" text="Age" />
+                  <Label layoutX="14.0" layoutY="42.0" text="Height" />
+                  <Label layoutX="14.0" layoutY="69.0" text="Salary" />
+                  <TextField alignment="CENTER" layoutX="61.0" layoutY="10.0" prefHeight="25.0" prefWidth="52.0" promptText="From" />
+                  <TextField alignment="CENTER" layoutX="120.0" layoutY="10.0" prefHeight="25.0" prefWidth="52.0" promptText="To" />
+                  <TextField alignment="CENTER" layoutX="61.0" layoutY="38.0" prefHeight="25.0" prefWidth="52.0" promptText="From" />
+                  <TextField alignment="CENTER" layoutX="120.0" layoutY="38.0" prefHeight="25.0" prefWidth="52.0" promptText="To" />
+                  <TextField alignment="CENTER" layoutX="61.0" layoutY="67.0" prefHeight="25.0" prefWidth="52.0" promptText="From" />
+                  <TextField alignment="CENTER" layoutX="121.0" layoutY="67.0" prefHeight="25.0" prefWidth="51.0" promptText="To" />
+               </children>
+            </AnchorPane>
             <HBox>
                <children>
                   <Region HBox.hgrow="ALWAYS" />
@@ -100,14 +114,14 @@
       </HBox>
    </bottom>
    <center>
-      <TableView fx:id="playersTable" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+      <TableView fx:id="playersTable" prefHeight="310.0" prefWidth="481.0" BorderPane.alignment="CENTER">
         <columns>
           <TableColumn fx:id="columnName" maxWidth="1.7976931348623157E308" minWidth="157.0" prefWidth="-1.0" text="Name" />
           <TableColumn fx:id="columnCountry" maxWidth="1.7976931348623157E308" minWidth="72.0" prefWidth="-1.0" text="Country" />
             <TableColumn fx:id="columnPosition" maxWidth="1.7976931348623157E308" minWidth="72.0" prefWidth="-1.0" text="Position" />
-            <TableColumn fx:id="columnAge" maxWidth="1.7976931348623157E308" minWidth="34.0" prefWidth="34.0" text="Age" />
-            <TableColumn fx:id="columnHeight" maxWidth="1.7976931348623157E308" minWidth="41.0" prefWidth="53.0" text="Height" />
-            <TableColumn fx:id="columnSalary" maxWidth="1.7976931348623157E308" minWidth="50.0" prefWidth="50.0" text="Salary" />
+            <TableColumn fx:id="columnAge" maxWidth="1.7976931348623157E308" minWidth="34.0" prefWidth="47.0" text="Age" />
+            <TableColumn fx:id="columnHeight" maxWidth="1.7976931348623157E308" minWidth="41.0" prefWidth="58.0" text="Height" />
+            <TableColumn fx:id="columnSalary" maxWidth="1.7976931348623157E308" minWidth="50.0" prefWidth="79.0" text="Salary" />
         </columns>
       </TableView>
    </center>
