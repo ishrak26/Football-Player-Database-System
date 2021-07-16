@@ -7,4 +7,5 @@ module JavaFxApplication {
     opens server to javafx.graphics, javafx.fxml;
     opens home to javafx.graphics, javafx.fxml;
     opens client to javafx.graphics, javafx.fxml;
+    opens data.database to javafx.base;
 }
