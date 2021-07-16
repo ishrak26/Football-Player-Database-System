@@ -3,10 +3,7 @@ package home;
 import data.database.Database;
 import data.database.Player;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.FileReader;
-import java.io.FileWriter;
+import java.io.*;
 import java.util.List;
 
 /*
@@ -37,7 +34,7 @@ public class FileOperations {
         this.outputFileName = outputFileName;
     }
 
-    public void readFromFile(Database db) throws Exception {
+    public void readFromFile(Database db) throws IOException {
         BufferedReader br = new BufferedReader(new FileReader(inputFileName));
 
         while (true) {
