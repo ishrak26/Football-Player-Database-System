@@ -13,7 +13,7 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception{
 //        Parent root = FXMLLoader.load(getClass().getResource("home.fxml"));
         Parent root = FXMLLoader.load(getClass().getResource("/client/clubHomeWindow.fxml"));
-        primaryStage.setTitle("Hello World");
+        primaryStage.setTitle("Club");
         Scene scene = new Scene(root);
 //        scene.setFill(Color.TRANSPARENT);
         primaryStage.setScene(scene);

@@ -1,3 +1,9 @@
-.logo {
-    -fx-background-color: transparent;
+.window {
+    -fx-background-color: #202020;
+}
+
+.clubName {
+    -fx-font-family: Impact;
+    -fx-font-size: 40pt;
+    -fx-text-fill: #dedcdc;
 }
