@@ -39,7 +39,7 @@ public class Server {
 
     private void serve(Socket socket) throws IOException {
         NetworkUtil networkUtil = new NetworkUtil(socket);
-        new ThreadServer(networkUtil);
+        new ThreadServer(networkUtil, this);
     }
 
     public static void main(String[] args) {

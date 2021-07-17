@@ -1,9 +1,10 @@
 package data.database;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Club {
+public class Club implements Serializable {
     private String name;
     private List<Player> players;
     private double budget;

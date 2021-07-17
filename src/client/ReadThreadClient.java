@@ -20,6 +20,7 @@ public class ReadThreadClient implements Runnable {
             try {
                 Object obj = networkUtil.read();
 
+
             } catch (IOException | ClassNotFoundException e) {
                 e.printStackTrace();
             } finally {

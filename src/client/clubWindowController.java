@@ -92,6 +92,7 @@ public class clubWindowController implements Initializable {
 
     @FXML
     void sellSelectedPlayers(ActionEvent event) {
+        ObservableList<Player> selectedPlayers = playersTable.getSelectionModel().getSelectedItems();
 
     }
 
@@ -104,6 +105,7 @@ public class clubWindowController implements Initializable {
     private void loadPlayersTable() {
         initializeTableColumns();
         loadPlayersTableData();
+        playersTable.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
     }
 
     private void initializeTableColumns() {
