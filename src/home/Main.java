@@ -12,7 +12,8 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
 //        Parent root = FXMLLoader.load(getClass().getResource("home.fxml"));
-        Parent root = FXMLLoader.load(getClass().getResource("/client/clubHomeWindow.fxml"));
+//        Parent root = FXMLLoader.load(getClass().getResource("/client/clubHomeWindow.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/client/playerCard.fxml"));
         primaryStage.setTitle("Club");
         Scene scene = new Scene(root);
 //        scene.setFill(Color.TRANSPARENT);
