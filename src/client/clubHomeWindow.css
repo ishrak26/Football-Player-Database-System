@@ -7,3 +7,7 @@
     -fx-font-size: 40pt;
     -fx-text-fill: #dedcdc;
 }
+
+.transparent {
+    -fx-background-color: rgba(0, 0, 0, 0);
+}
