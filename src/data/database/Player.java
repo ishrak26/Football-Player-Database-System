@@ -10,8 +10,11 @@ public class Player {
     private int number;
     private double salary;
     private double price;
+    private String imgSource;
 
     public Player() {
+        // will delete later
+        imgSource = "/images/player/david_de_gea.png";
     }
 
     public String getName() {
@@ -76,6 +79,14 @@ public class Player {
 
     public void setSalary(double salary) {
         this.salary = salary;
+    }
+
+    public String getImgSource() {
+        return imgSource;
+    }
+
+    public void setImgSource(String imgSource) {
+        this.imgSource = imgSource;
     }
 
     public double getPrice() {

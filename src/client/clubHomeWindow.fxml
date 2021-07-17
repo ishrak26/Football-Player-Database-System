@@ -133,9 +133,9 @@
                            <children>
                               <HBox alignment="CENTER" prefHeight="100.0" prefWidth="459.0" VBox.vgrow="ALWAYS">
                                  <children>
-                                    <ScrollPane prefHeight="445.0" prefWidth="419.0" styleClass="transparent" stylesheets="@clubHomeWindow.css">
+                                    <ScrollPane fx:id="scrollPane" prefHeight="445.0" prefWidth="419.0" styleClass="transparent" stylesheets="@clubHomeWindow.css">
                                       <content>
-                                          <GridPane prefHeight="6.0" prefWidth="0.0">
+                                          <GridPane fx:id="gridPane" prefHeight="6.0" prefWidth="0.0">
                                             <columnConstraints>
                                               <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                                             </columnConstraints>

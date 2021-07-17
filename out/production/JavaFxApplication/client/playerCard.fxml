@@ -15,9 +15,9 @@
    <children>
       <VBox alignment="CENTER" layoutX="280.0" prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="280.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <ImageView fitHeight="102.0" fitWidth="99.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="playerImage" fitHeight="102.0" fitWidth="99.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../images/player/david%20de%20gea.png" />
+                  <Image url="@../images/player/david_de_gea.png" />
                </image>
             </ImageView>
          </children>
@@ -26,7 +26,7 @@
          <children>
             <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="10.0" prefHeight="80.0" prefWidth="280.0">
                <children>
-                  <Label text="David De Gea">
+                  <Label fx:id="playerNameLabel" text="David De Gea">
                      <HBox.margin>
                         <Insets left="10.0" right="10.0" />
                      </HBox.margin>
@@ -36,7 +36,7 @@
                         <Insets left="10.0" right="10.0" />
                      </HBox.margin>
                   </Separator>
-                  <Label text="Goalkeeper">
+                  <Label fx:id="playerPositionLabel" text="Goalkeeper">
                      <HBox.margin>
                         <Insets left="10.0" />
                      </HBox.margin>
@@ -45,7 +45,7 @@
             </HBox>
             <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="44.0" prefHeight="68.0" prefWidth="280.0">
                <children>
-                  <Button mnemonicParsing="false" text="Player Details">
+                  <Button fx:id="playerDetailsButton" mnemonicParsing="false" onAction="#showPlayerDetails" text="Player Details">
                      <HBox.margin>
                         <Insets left="10.0" />
                      </HBox.margin>

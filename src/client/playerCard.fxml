@@ -17,7 +17,7 @@
          <children>
             <ImageView fx:id="playerImage" fitHeight="102.0" fitWidth="99.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../images/player/david%20de%20gea.png" />
+                  <Image url="@../images/player/david_de_gea.png" />
                </image>
             </ImageView>
          </children>
@@ -26,7 +26,7 @@
          <children>
             <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="10.0" prefHeight="80.0" prefWidth="280.0">
                <children>
-                  <Label fx:id="playerName" text="David De Gea">
+                  <Label fx:id="playerNameLabel" text="David De Gea">
                      <HBox.margin>
                         <Insets left="10.0" right="10.0" />
                      </HBox.margin>
@@ -36,7 +36,7 @@
                         <Insets left="10.0" right="10.0" />
                      </HBox.margin>
                   </Separator>
-                  <Label fx:id="playerPosition" text="Goalkeeper">
+                  <Label fx:id="playerPositionLabel" text="Goalkeeper">
                      <HBox.margin>
                         <Insets left="10.0" />
                      </HBox.margin>
