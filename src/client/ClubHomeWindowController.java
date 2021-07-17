@@ -15,6 +15,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
@@ -22,6 +23,7 @@ import javafx.scene.layout.Region;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.Locale;
 import java.util.ResourceBundle;
 
 public class ClubHomeWindowController implements Initializable {
@@ -61,6 +63,7 @@ public class ClubHomeWindowController implements Initializable {
 
     private Club club;
     private String clubName;
+    private String logoImgSource;
 
     @FXML
     void addNewPlayer(ActionEvent event) {
@@ -84,9 +87,23 @@ public class ClubHomeWindowController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        clubName = "Manchester United";
+        clubName = "Liverpool";
         loadClubData();
+        initClubInfo();
         loadPlayerCards();
+    }
+
+    private void initClubInfo() {
+        String clubName = this.clubName.replace(' ', '_');
+        logoImgSource = "/images/logo/" + clubName + ".png";
+        clubLogoImage.setImage(new Image(getClass().getResourceAsStream(logoImgSource)));
+        String[] words = clubName.split("_");
+        clubNameFirstLine.setText(words[0].toUpperCase());
+        if (words.length > 1) {
+            clubNameSecondLine.setText(words[1].toUpperCase());
+        } else {
+            clubNameSecondLine.setText("");
+        }
     }
 
     private void loadPlayerCards() {
