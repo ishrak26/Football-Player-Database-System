@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
-
 
 <AnchorPane prefHeight="600.0" prefWidth="1000.0" styleClass="window" stylesheets="@clubHomeWindow.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.ClubHomeWindowController">
    <children>
@@ -59,8 +60,30 @@
                         </Label>
                      </children>
                   </HBox>
-                  <HBox prefHeight="100.0" prefWidth="334.0" />
-                  <HBox layoutX="10.0" layoutY="245.0" prefHeight="154.0" prefWidth="334.0" />
+                  <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="334.0">
+                     <children>
+                        <Label text="Remaining Budget:">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Pane prefHeight="200.0" prefWidth="20.0" HBox.hgrow="ALWAYS" />
+                        <Label layoutX="30.0" layoutY="43.0" text="\$5,000,000">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                        </Label>
+                     </children>
+                     <padding>
+                        <Insets left="30.0" right="30.0" />
+                     </padding></HBox>
+                  <HBox alignment="CENTER" layoutX="10.0" layoutY="245.0" prefHeight="154.0" prefWidth="334.0">
+                     <children>
+                        <Button mnemonicParsing="false" text="Add New Player" />
+                     </children></HBox>
                </children>
             </VBox>
          </left>
