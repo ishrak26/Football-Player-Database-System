@@ -2,21 +2,26 @@ package data.database;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class Club implements Serializable {
     private String name;
     private List<Player> players;
     private double budget;
+    private Set<String> countrySet;
 
     private final int MAX_PLAYER_LIMIT = 7;
 
     public Club() {
         players = new ArrayList<>();
+        countrySet = new HashSet<>();
     }
 
     public Club(Player player) {
         players = new ArrayList<>();
+        countrySet = new HashSet<>();
         name = player.getClub();
         addPlayer(player);
     }
@@ -49,12 +54,21 @@ public class Club implements Serializable {
         this.budget = budget;
     }
 
+    public Set<String> getCountrySet() {
+        return countrySet;
+    }
+
+    public void setCountrySet(Set<String> countrySet) {
+        this.countrySet = countrySet;
+    }
+
     public int getMaxPlayerLimit() {
         return MAX_PLAYER_LIMIT;
     }
 
     public void addPlayer(Player player) {
         players.add(player);
+        countrySet.add(player.getCountry());
     }
 
     public List<Player> getMaxSalaryPlayers() {

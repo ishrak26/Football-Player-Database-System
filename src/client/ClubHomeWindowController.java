@@ -1,6 +1,7 @@
 package client;
 
 import data.database.Club;
+import data.database.Country;
 import data.database.Database;
 import data.database.Player;
 import home.FileOperations;
@@ -11,18 +12,14 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.scene.Parent;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.ScrollPane;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.Region;
+import javafx.scene.layout.*;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.List;
 import java.util.Locale;
 import java.util.ResourceBundle;
 
@@ -44,6 +41,12 @@ public class ClubHomeWindowController implements Initializable {
     private Button addNewPlayerButton;
 
     @FXML
+    private VBox bodyVBox;
+
+    @FXML
+    private HBox topBarHBox;
+
+    @FXML
     private TextField searchPlayerNameTextField;
 
     @FXML
@@ -56,22 +59,69 @@ public class ClubHomeWindowController implements Initializable {
     private Button logoutButton;
 
     @FXML
+    private HBox listPlayerHBox;
+
+    @FXML
     private ScrollPane scrollPane;
 
     @FXML
     private GridPane gridPane;
 
+    @FXML
+    private TreeView<CheckBox> filterTreeCountry;
+
+    @FXML
+    private TreeView<CheckBox> filterTreePosition;
+
+    @FXML
+    private TextField ageFromTextField;
+
+    @FXML
+    private TextField ageToTextField;
+
+    @FXML
+    private TextField heightFromTextField;
+
+    @FXML
+    private TextField salaryFromTextField;
+
+    @FXML
+    private TextField heightToTextField;
+
+    @FXML
+    private TextField salaryToTextField;
+
+    @FXML
+    private Button applyFiltersButton;
+
+    @FXML
+    private Button resetFiltersButton;
+
+    @FXML
+    private HBox bottomBarHBox;
+
     private Club club;
     private String clubName;
     private String logoImgSource;
+    private boolean aBoolean = false;
 
     @FXML
     void addNewPlayer(ActionEvent event) {
-
+//        if (listPlayerHBox.isVisible()) listPlayerHBox.setVisible(false);
+//        else listPlayerHBox.setVisible(true);
+        if (!aBoolean) {
+            bodyVBox.getChildren().clear();
+            aBoolean = true;
+        }
+        else {
+            bodyVBox.getChildren().addAll(bottomBarHBox, topBarHBox, listPlayerHBox);
+            aBoolean = false;
+        }
     }
 
     @FXML
     void buyPlayer(ActionEvent event) {
+//        listPlayerHBox.toFront();
 
     }
 
@@ -85,12 +135,61 @@ public class ClubHomeWindowController implements Initializable {
 
     }
 
+    @FXML
+    void applyFilters(ActionEvent event) {
+
+    }
+
+    @FXML
+    void resetFilters(ActionEvent event) {
+
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        clubName = "Liverpool";
+        clubName = "Manchester United";
         loadClubData();
         initClubInfo();
-        loadPlayerCards();
+        loadPlayerCards(club.getPlayers());
+        makeFilterTree();
+    }
+
+    private void makeFilterTree() {
+        makeFilterTreeCountry();
+        makeFilterTreePosition();
+    }
+
+    private void makeFilterTreePosition() {
+        TreeItem<CheckBox> root;
+        root = new TreeItem<>();
+        root.setExpanded(true);
+
+        makeBranchFilterTree("Goalkeeper", root);
+        makeBranchFilterTree("Defender", root);
+        makeBranchFilterTree("Midfielder", root);
+        makeBranchFilterTree("Forward", root);
+
+        filterTreePosition.setRoot(root);
+    }
+
+    private void makeFilterTreeCountry() {
+        TreeItem<CheckBox> root;
+        root = new TreeItem<>();
+        root.setExpanded(true);
+
+        for (String country:
+             club.getCountrySet()) {
+            makeBranchFilterTree(country, root);
+        }
+
+        filterTreeCountry.setRoot(root);
+    }
+
+    private TreeItem<CheckBox> makeBranchFilterTree(String title, TreeItem<CheckBox> parent) {
+        CheckBox checkBox = new CheckBox(title);
+        TreeItem<CheckBox> item = new TreeItem<>(checkBox);
+        parent.getChildren().add(item);
+        return item;
     }
 
     private void initClubInfo() {
@@ -106,12 +205,13 @@ public class ClubHomeWindowController implements Initializable {
         }
     }
 
-    private void loadPlayerCards() {
+    // for listing players under any condition
+    private void loadPlayerCards(List<Player> playerList) {
         try {
             int row = 0;
             int col = 0;
             for (Player player :
-                    club.getPlayers()) {
+                    playerList) {
                 FXMLLoader fxmlLoader = new FXMLLoader();
                 fxmlLoader.setLocation(getClass().getResource("/client/playerCard.fxml"));
 

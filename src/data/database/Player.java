@@ -14,7 +14,7 @@ public class Player {
 
     public Player() {
         // will delete later
-        imgSource = "/images/player/david_de_gea.png";
+        imgSource = "/images/player/David_de_Gea.png";
     }
 
     public String getName() {

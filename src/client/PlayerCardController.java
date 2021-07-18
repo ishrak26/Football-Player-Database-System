@@ -26,7 +26,7 @@ public class PlayerCardController {
 
     @FXML
     void showPlayerDetails(ActionEvent event) {
-
+        System.out.println("Hello");
     }
 
     public void setData(Player player) {

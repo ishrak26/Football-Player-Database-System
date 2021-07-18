@@ -17,7 +17,7 @@
          <children>
             <ImageView fx:id="playerImage" fitHeight="102.0" fitWidth="99.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../images/player/david_de_gea.png" />
+                  <Image url="@../images/player/David_de_Gea.png" />
                </image>
             </ImageView>
          </children>
