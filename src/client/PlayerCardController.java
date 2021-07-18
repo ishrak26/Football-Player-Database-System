@@ -60,7 +60,7 @@ public class PlayerCardController {
         this.player = player;
         playerNameLabel.setText(player.getName());
         playerPositionLabel.setText(player.getPosition());
-        this.playerImage = new ImageView(new Image(getClass().getResourceAsStream(player.getImgSource())));
+        playerImage.setImage(new Image(getClass().getResourceAsStream(player.getImgSource())));
     }
 
 }

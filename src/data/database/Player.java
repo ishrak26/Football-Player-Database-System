@@ -1,5 +1,7 @@
 package data.database;
 
+import javafx.scene.image.Image;
+
 public class Player {
     private String name;
     private String country;
@@ -14,7 +16,7 @@ public class Player {
 
     public Player() {
         // will delete later
-        imgSource = "/images/player/David_de_Gea.png";
+        imgSource = "/images/player/unknown.png";
     }
 
     public String getName() {
@@ -23,6 +25,7 @@ public class Player {
 
     public void setName(String name) {
         this.name = name;
+        setImgSource("/images/player/" + name.replace(' ', '_') + ".png");
     }
 
     public String getCountry() {
@@ -86,7 +89,12 @@ public class Player {
     }
 
     public void setImgSource(String imgSource) {
-        this.imgSource = imgSource;
+        try {
+            new Image(getClass().getResourceAsStream(imgSource));
+            this.imgSource = imgSource;
+        } catch (Exception e) {
+            this.imgSource = "/images/player/unknown.png";
+        }
     }
 
     public double getPrice() {
