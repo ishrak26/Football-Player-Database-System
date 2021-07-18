@@ -147,7 +147,7 @@ public class ClubHomeWindowController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        clubName = "Chelsea";
+        clubName = "Arsenal";
         loadClubData();
         initClubInfo();
         loadPlayerCards(club.getPlayers());

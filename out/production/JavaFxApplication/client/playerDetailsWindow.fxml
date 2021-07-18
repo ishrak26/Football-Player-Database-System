@@ -14,7 +14,7 @@
    <children>
       <ImageView fx:id="playerImage" fitHeight="150.0" fitWidth="161.0" layoutX="408.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="14.0">
          <image>
-            <Image url="@../images/player/David_de_Gea.png" />
+            <Image url="@../images/player/unknown.png" />
          </image>
       </ImageView>
       <Label fx:id="playerNameLabel" layoutX="14.0" layoutY="14.0" text="Pierre-Emerick Aubameyang" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="14.0">

@@ -130,7 +130,7 @@
                   </HBox>
                   <HBox fx:id="listPlayerHBox" prefHeight="100.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
                      <children>
-                        <VBox prefHeight="445.0" prefWidth="483.0">
+                        <VBox prefHeight="445.0" prefWidth="483.0" HBox.hgrow="ALWAYS">
                            <children>
                               <HBox alignment="CENTER" prefHeight="100.0" prefWidth="459.0" VBox.vgrow="ALWAYS">
                                  <children>
@@ -150,13 +150,13 @@
                               </HBox>
                            </children>
                         </VBox>
-                        <VBox alignment="TOP_CENTER" prefHeight="445.0" prefWidth="232.0">
+                        <VBox alignment="TOP_CENTER" prefHeight="445.0" prefWidth="232.0" HBox.hgrow="ALWAYS">
                            <children>
-                              <AnchorPane prefHeight="151.0" prefWidth="208.0">
+                              <AnchorPane prefHeight="151.0" prefWidth="208.0" VBox.vgrow="ALWAYS">
                                  <children>
                                     <HBox layoutY="32.0" maxHeight="204.0" prefHeight="119.0" prefWidth="208.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="32.0">
                                        <children>
-                                          <TreeView fx:id="filterTreeCountry" prefHeight="119.0" prefWidth="210.0">
+                                          <TreeView fx:id="filterTreeCountry" prefHeight="119.0" prefWidth="210.0" HBox.hgrow="ALWAYS">
                                              <HBox.margin>
                                                 <Insets left="15.0" right="15.0" />
                                              </HBox.margin>
@@ -169,11 +169,11 @@
                                     <Insets />
                                  </VBox.margin>
                               </AnchorPane>
-                              <AnchorPane layoutX="10.0" layoutY="55.0" maxHeight="-Infinity" prefHeight="106.0" prefWidth="208.0">
+                              <AnchorPane layoutX="10.0" layoutY="55.0" maxHeight="-Infinity" prefHeight="106.0" prefWidth="208.0" VBox.vgrow="ALWAYS">
                                  <children>
                                     <HBox layoutY="30.0" maxHeight="204.0" prefHeight="101.0" prefWidth="208.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="30.0">
                                        <children>
-                                          <TreeView fx:id="filterTreePosition" prefHeight="76.0" prefWidth="221.0">
+                                          <TreeView fx:id="filterTreePosition" prefHeight="76.0" prefWidth="221.0" HBox.hgrow="ALWAYS">
                                              <HBox.margin>
                                                 <Insets left="15.0" right="15.0" />
                                              </HBox.margin>
@@ -186,7 +186,7 @@
                                     <Insets />
                                  </VBox.margin>
                               </AnchorPane>
-                              <AnchorPane prefHeight="140.0" prefWidth="208.0">
+                              <AnchorPane prefHeight="140.0" prefWidth="208.0" VBox.vgrow="ALWAYS">
                                  <children>
                                     <Label layoutX="14.0" layoutY="14.0" text="Age" />
                                     <Label layoutX="14.0" layoutY="62.0" text="Height" />
