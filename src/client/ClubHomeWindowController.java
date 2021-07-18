@@ -20,6 +20,7 @@ import org.controlsfx.control.spreadsheet.Grid;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 import java.util.ResourceBundle;
@@ -52,6 +53,9 @@ public class ClubHomeWindowController implements Initializable {
 
     @FXML
     private Button searchPlayerNameButton;
+
+    @FXML
+    private Button resetPlayerNameButton;
 
     @FXML
     private Button buyPlayerButton;
@@ -105,7 +109,6 @@ public class ClubHomeWindowController implements Initializable {
     private HBox bottomBarHBox;
 
     private Club club;
-    private List<Player> playerList;
     private String clubName;
     private String logoImgSource;
     private boolean aBoolean = false;
@@ -137,7 +140,21 @@ public class ClubHomeWindowController implements Initializable {
 
     @FXML
     void searchPlayerByName(ActionEvent event) {
+        String playerName = searchPlayerNameTextField.getText().trim();
+        Database db = new Database();
+        db.addPlayer(club.getPlayers());
+        Player player = db.searchPlayerByName(playerName);
+        db.setPlayerList(new ArrayList<>());
+        if (player != null) {
+            db.getPlayerList().add(player);
+        }
+        loadPlayerCards(db.getPlayerList());
+    }
 
+    @FXML
+    void resetPlayerNameTextField(ActionEvent event) {
+        searchPlayerNameTextField.setText("");
+        loadPlayerCards(club.getPlayers());
     }
 
     @FXML
@@ -235,16 +252,16 @@ public class ClubHomeWindowController implements Initializable {
         // reset countries
         for (TreeItem<CheckBox> item:
                 filterTreeCountry.getRoot().getChildren()) {
-            if (item.getValue().isSelected()) {
-                item.getValue().setSelected(false);
+            if (!item.getValue().isSelected()) {
+                item.getValue().setSelected(true);
             }
         }
 
         // reset position
         for (TreeItem<CheckBox> item:
                 filterTreePosition.getRoot().getChildren()) {
-            if (item.getValue().isSelected()) {
-                item.getValue().setSelected(false);
+            if (!item.getValue().isSelected()) {
+                item.getValue().setSelected(true);
             }
         }
 
@@ -263,7 +280,7 @@ public class ClubHomeWindowController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        clubName = "Arsenal";
+        clubName = "Manchester United";
         loadClubData();
         initClubInfo();
         loadPlayerCards(club.getPlayers());
@@ -335,11 +352,11 @@ public class ClubHomeWindowController implements Initializable {
             playerListVBox.getChildren().clear();
             playerListVBox.getChildren().add(root);
 
-            System.out.println("The list of players is: ");
-            for (Player player:
-                 playerList) {
-                System.out.println(player.getName());
-            }
+//            System.out.println("The list of players is: ");
+//            for (Player player:
+//                 playerList) {
+//                System.out.println(player.getName());
+//            }
         } catch (IOException e) {
             e.printStackTrace();
         }
