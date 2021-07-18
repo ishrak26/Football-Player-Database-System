@@ -158,31 +158,4 @@ public class Club implements Serializable {
             }
         }
     }
-
-    public List<Player> searchPlayerByAge(int lo, int hi) {
-        List<Player> playerList = new ArrayList<>();
-        for (Player p : players) {
-            int age = p.getAge();
-            if (age >= lo && age <= hi) playerList.add(p);
-        }
-        return playerList;
-    }
-
-    public List<Player> searchPlayerByHeight(double lo, double hi) {
-        List<Player> playerList = new ArrayList<>();
-        for (Player p : players) {
-            double height = p.getHeight();
-            if (height >= lo && height <= hi) playerList.add(p);
-        }
-        return playerList;
-    }
-
-    public List<Player> searchPlayerBySalary(double lo, double hi) {
-        List<Player> playerList = new ArrayList<>();
-        for (Player p : players) {
-            double salary = p.getSalary();
-            if (salary >= lo && salary <= hi) playerList.add(p);
-        }
-        return playerList;
-    }
 }

@@ -16,6 +16,7 @@ import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
+import org.controlsfx.control.spreadsheet.Grid;
 
 import java.io.IOException;
 import java.net.URL;
@@ -62,10 +63,13 @@ public class ClubHomeWindowController implements Initializable {
     private HBox listPlayerHBox;
 
     @FXML
-    private ScrollPane scrollPane;
+    private VBox playerListVBox;
 
-    @FXML
-    private GridPane gridPane;
+//    @FXML
+//    private ScrollPane scrollPane;
+//
+//    @FXML
+//    private GridPane gridPane;
 
     @FXML
     private TreeView<CheckBox> filterTreeCountry;
@@ -101,6 +105,7 @@ public class ClubHomeWindowController implements Initializable {
     private HBox bottomBarHBox;
 
     private Club club;
+    private List<Player> playerList;
     private String clubName;
     private String logoImgSource;
     private boolean aBoolean = false;
@@ -137,12 +142,123 @@ public class ClubHomeWindowController implements Initializable {
 
     @FXML
     void applyFilters(ActionEvent event) {
+        Database db = new Database();
+        db.addPlayer(club.getPlayers());
+        applyFiltersCountry(db);
+        applyFiltersPosition(db);
+        applyFiltersAge(db);
+        applyFiltersHeight(db);
+        applyFiltersSalary(db);
 
+        loadPlayerCards(db.getPlayerList());
+    }
+
+    private void applyFiltersSalary(Database db) {
+        double lo, hi;
+        try {
+            lo = Double.parseDouble(salaryFromTextField.getText());
+        } catch (Exception e) {
+            lo = 0;
+            salaryFromTextField.setText(String.valueOf(lo));
+        }
+        try {
+            hi = Double.parseDouble(salaryToTextField.getText());
+        } catch (Exception e) {
+            hi = club.getMaxSalaryPlayers().get(0).getSalary();
+            salaryToTextField.setText(String.valueOf(hi));
+        }
+        db.setPlayerList(db.searchPlayerBySalary(lo, hi));
+    }
+
+    private void applyFiltersHeight(Database db) {
+        double lo, hi;
+        try {
+            lo = Double.parseDouble(heightFromTextField.getText());
+        } catch (Exception e) {
+            lo = 0;
+            heightFromTextField.setText(String.valueOf(lo));
+        }
+        try {
+            hi = Double.parseDouble(heightToTextField.getText());
+        } catch (Exception e) {
+            hi = club.getMaxHeightPlayers().get(0).getHeight();
+            heightToTextField.setText(String.valueOf(hi));
+        }
+        db.setPlayerList(db.searchPlayerByHeight(lo, hi));
+    }
+
+    private void applyFiltersAge(Database db) {
+        int lo, hi;
+        try {
+            lo = Integer.parseInt(ageFromTextField.getText());
+        } catch (Exception e) {
+            lo = 0;
+            ageFromTextField.setText(String.valueOf(lo));
+        }
+        try {
+            hi = Integer.parseInt(ageToTextField.getText());
+        } catch (Exception e) {
+            hi = club.getMaxAgePlayers().get(0).getAge();
+            ageToTextField.setText(String.valueOf(hi));
+        }
+        db.setPlayerList(db.searchPlayerByAge(lo, hi));
+    }
+
+    private void applyFiltersPosition(Database db) {
+        for (TreeItem<CheckBox> item:
+                filterTreePosition.getRoot().getChildren()) {
+            if (!item.getValue().isSelected()) {
+                // remove players playing at this position
+                for (Player player:
+                        db.searchPlayerByPosition(item.getValue().getText())) {
+                    db.getPlayerList().remove(player);
+                }
+            }
+        }
+    }
+
+    private void applyFiltersCountry(Database db) {
+        for (TreeItem<CheckBox> item:
+             filterTreeCountry.getRoot().getChildren()) {
+            if (!item.getValue().isSelected()) {
+                // remove players from this country
+                for (Player player:
+                        db.searchPlayerByCountry(item.getValue().getText())) {
+                    db.getPlayerList().remove(player);
+                }
+            }
+        }
     }
 
     @FXML
     void resetFilters(ActionEvent event) {
+        // reset countries
+        for (TreeItem<CheckBox> item:
+                filterTreeCountry.getRoot().getChildren()) {
+            if (item.getValue().isSelected()) {
+                item.getValue().setSelected(false);
+            }
+        }
 
+        // reset position
+        for (TreeItem<CheckBox> item:
+                filterTreePosition.getRoot().getChildren()) {
+            if (item.getValue().isSelected()) {
+                item.getValue().setSelected(false);
+            }
+        }
+
+        // reset text fields
+        ageFromTextField.setText("");
+        ageToTextField.setText("");
+
+        heightFromTextField.setText("");
+        heightToTextField.setText("");
+
+        salaryFromTextField.setText("");
+        salaryToTextField.setText("");
+
+        applyFilters(event);
     }
 
     @Override
@@ -170,6 +286,7 @@ public class ClubHomeWindowController implements Initializable {
         makeBranchFilterTree("Forward", root);
 
         filterTreePosition.setRoot(root);
+        filterTreePosition.setShowRoot(false);
     }
 
     private void makeFilterTreeCountry() {
@@ -183,10 +300,12 @@ public class ClubHomeWindowController implements Initializable {
         }
 
         filterTreeCountry.setRoot(root);
+        filterTreeCountry.setShowRoot(false);
     }
 
     private TreeItem<CheckBox> makeBranchFilterTree(String title, TreeItem<CheckBox> parent) {
         CheckBox checkBox = new CheckBox(title);
+        checkBox.setSelected(true);
         TreeItem<CheckBox> item = new TreeItem<>(checkBox);
         parent.getChildren().add(item);
         return item;
@@ -208,35 +327,23 @@ public class ClubHomeWindowController implements Initializable {
     // for listing players under any condition
     private void loadPlayerCards(List<Player> playerList) {
         try {
-            int row = 0;
-            int col = 0;
-            for (Player player :
-                    playerList) {
-                FXMLLoader fxmlLoader = new FXMLLoader();
-                fxmlLoader.setLocation(getClass().getResource("/client/playerCard.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            fxmlLoader.setLocation(getClass().getResource("/client/playerListView.fxml"));
+            Parent root = fxmlLoader.load();
+            PlayerListViewController playerListViewController = fxmlLoader.getController();
+            playerListViewController.loadPlayerCards(playerList);
+            playerListVBox.getChildren().clear();
+            playerListVBox.getChildren().add(root);
 
-                Parent card = fxmlLoader.load();
-
-                PlayerCardController playerCardController = fxmlLoader.getController();
-                playerCardController.setData(player);
-
-                gridPane.add(card, col, row++);
-                //set grid width
-                gridPane.setMinWidth(Region.USE_COMPUTED_SIZE);
-                gridPane.setPrefWidth(Region.USE_COMPUTED_SIZE);
-                gridPane.setMaxWidth(Region.USE_PREF_SIZE);
-
-                //set grid height
-                gridPane.setMinHeight(Region.USE_COMPUTED_SIZE);
-                gridPane.setPrefHeight(Region.USE_COMPUTED_SIZE);
-                gridPane.setMaxHeight(Region.USE_PREF_SIZE);
-
-                GridPane.setMargin(card, new Insets(10));
-
+            System.out.println("The list of players is: ");
+            for (Player player:
+                 playerList) {
+                System.out.println(player.getName());
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
+
     }
 
     private void loadClubData() {

@@ -55,24 +55,12 @@ public class Database {
         return null;
     }
 
-    public List<Player> searchPlayerByCountryAndClub(String country, String club) {
-        List<Player> players = new ArrayList<>();
-        if (country.equalsIgnoreCase("any")) {
-            players.addAll(playerList);
-        }
-        else {
-            for (Country c: countryList
-                 ) {
-                if (country.equalsIgnoreCase(c.getName())) {
-                    players.addAll(c.getPlayerList());
-                    break;
-                }
-            }
-        }
-        if (club.equalsIgnoreCase("any")) return players;
+    public List<Player> searchPlayerByCountryAndClub(String countryName, String clubName) {
+        List<Player> players = searchPlayerByCountry(countryName);
+        if (clubName.equalsIgnoreCase("any")) return players;
         for (int i = 0; i < players.size(); i++) {
             Player p = players.get(i);
-            if (!p.getClub().equalsIgnoreCase(club)) {
+            if (!p.getClub().equalsIgnoreCase(clubName)) {
                 players.remove(i);
                 i--;
             }
@@ -80,19 +68,27 @@ public class Database {
         return players;
     }
 
-    public List<Player> searchPlayerByPosition(String position) {
+    public List<Player> searchPlayerByCountry(String countryName) {
         List<Player> players = new ArrayList<>();
-        for (Player p : playerList) {
-            if (p.getPosition().equalsIgnoreCase(position)) players.add(p);
+        if (countryName.equalsIgnoreCase("any")) {
+            players.addAll(this.playerList);
+        }
+        else {
+            for (Country c: this.countryList
+            ) {
+                if (countryName.equalsIgnoreCase(c.getName())) {
+                    players.addAll(c.getPlayerList());
+                    break;
+                }
+            }
         }
         return players;
     }
 
-    public List<Player> searchPlayerBySalary(double lo, double hi) {
+    public List<Player> searchPlayerByPosition(String position) {
         List<Player> players = new ArrayList<>();
-        for (Player p : playerList) {
-            double salary = p.getSalary();
-            if (salary >= lo && salary <= hi) players.add(p);
+        for (Player p : this.playerList) {
+            if (p.getPosition().equalsIgnoreCase(position)) players.add(p);
         }
         return players;
     }
@@ -125,6 +121,13 @@ public class Database {
             return 1;
         }
         return 0;
+    }
+
+    public void addPlayer(List<Player> playerList) {
+        for (Player player:
+             playerList) {
+            addPlayer(player);
+        }
     }
 
     private void updateCountryList(Player player) {
@@ -211,5 +214,32 @@ public class Database {
             System.out.println(c);
         }
         System.out.println();
+    }
+
+    public List<Player> searchPlayerByAge(int lo, int hi) {
+        List<Player> playerList = new ArrayList<>();
+        for (Player p : this.playerList) {
+            int age = p.getAge();
+            if (age >= lo && age <= hi) playerList.add(p);
+        }
+        return playerList;
+    }
+
+    public List<Player> searchPlayerByHeight(double lo, double hi) {
+        List<Player> playerList = new ArrayList<>();
+        for (Player p : this.playerList) {
+            double height = p.getHeight();
+            if (height >= lo && height <= hi) playerList.add(p);
+        }
+        return playerList;
+    }
+
+    public List<Player> searchPlayerBySalary(double lo, double hi) {
+        List<Player> players = new ArrayList<>();
+        for (Player p : this.playerList) {
+            double salary = p.getSalary();
+            if (salary >= lo && salary <= hi) players.add(p);
+        }
+        return players;
     }
 }

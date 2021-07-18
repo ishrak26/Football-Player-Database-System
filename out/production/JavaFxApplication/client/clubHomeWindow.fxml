@@ -3,15 +3,12 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.TreeView?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
@@ -130,25 +127,25 @@
                   </HBox>
                   <HBox fx:id="listPlayerHBox" prefHeight="100.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
                      <children>
-                        <VBox prefHeight="445.0" prefWidth="483.0" HBox.hgrow="ALWAYS">
-                           <children>
-                              <HBox alignment="CENTER" prefHeight="100.0" prefWidth="459.0" VBox.vgrow="ALWAYS">
-                                 <children>
-                                    <ScrollPane fx:id="scrollPane" prefHeight="445.0" prefWidth="419.0" styleClass="transparent" stylesheets="@clubHomeWindow.css">
-                                      <content>
-                                          <GridPane fx:id="gridPane" prefHeight="6.0" prefWidth="0.0">
-                                            <columnConstraints>
-                                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                            </columnConstraints>
-                                          </GridPane>
-                                      </content>
-                                       <HBox.margin>
-                                          <Insets top="10.0" />
-                                       </HBox.margin>
-                                    </ScrollPane>
-                                 </children>
-                              </HBox>
-                           </children>
+                        <VBox fx:id="playerListVBox" prefHeight="445.0" prefWidth="483.0" HBox.hgrow="ALWAYS">
+<!--                           <children>-->
+<!--                              <HBox alignment="CENTER" prefHeight="100.0" prefWidth="459.0" VBox.vgrow="ALWAYS">-->
+<!--                                 <children>-->
+<!--                                    <ScrollPane fx:id="scrollPane" prefHeight="445.0" prefWidth="419.0" styleClass="transparent" stylesheets="@clubHomeWindow.css">-->
+<!--                                      <content>-->
+<!--                                          <GridPane fx:id="gridPane" prefHeight="6.0" prefWidth="0.0">-->
+<!--                                            <columnConstraints>-->
+<!--                                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />-->
+<!--                                            </columnConstraints>-->
+<!--                                          </GridPane>-->
+<!--                                      </content>-->
+<!--                                       <HBox.margin>-->
+<!--                                          <Insets top="10.0" />-->
+<!--                                       </HBox.margin>-->
+<!--                                    </ScrollPane>-->
+<!--                                 </children>-->
+<!--                              </HBox>-->
+<!--                           </children>-->
                         </VBox>
                         <VBox alignment="TOP_CENTER" prefHeight="445.0" prefWidth="232.0" HBox.hgrow="ALWAYS">
                            <children>
