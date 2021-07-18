@@ -1,5 +1,6 @@
 package home;
 
+import client.ClubHomeWindowController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -12,9 +13,12 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
 //        Parent root = FXMLLoader.load(getClass().getResource("home.fxml"));
-        Parent root = FXMLLoader.load(getClass().getResource("/client/clubHomeWindow.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setLocation(getClass().getResource("/client/clubHomeWindow.fxml"));
+        Parent root = fxmlLoader.load();
 //        Parent root = FXMLLoader.load(getClass().getResource("/client/playerCard.fxml"));
-        primaryStage.setTitle("Club");
+        ClubHomeWindowController clubHomeWindowController = fxmlLoader.getController();
+        primaryStage.setTitle(clubHomeWindowController.getClubName());
         Scene scene = new Scene(root);
 //        scene.setFill(Color.TRANSPARENT);
         primaryStage.setScene(scene);

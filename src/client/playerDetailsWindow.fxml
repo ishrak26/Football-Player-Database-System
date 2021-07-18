@@ -10,14 +10,14 @@
 <?import javafx.scene.text.Font?>
 
 
-<AnchorPane prefHeight="204.0" prefWidth="454.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.PlayerDetailsWindowController">
+<AnchorPane prefHeight="239.0" prefWidth="588.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.PlayerDetailsWindowController">
    <children>
-      <ImageView fx:id="playerImage" fitHeight="223.0" fitWidth="166.0" layoutX="288.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="playerImage" fitHeight="150.0" fitWidth="161.0" layoutX="408.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="14.0">
          <image>
             <Image url="@../images/player/David_de_Gea.png" />
          </image>
       </ImageView>
-      <Label fx:id="playerNameLabel" layoutX="14.0" layoutY="14.0" text="David de Gea" AnchorPane.leftAnchor="14.0">
+      <Label fx:id="playerNameLabel" layoutX="14.0" layoutY="14.0" text="Pierre-Emerick Aubameyang" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="14.0">
          <font>
             <Font size="36.0" />
          </font>
@@ -27,22 +27,22 @@
             <Font size="24.0" />
          </font>
       </Label>
-      <Label fx:id="playerAgeLabel" layoutX="14.0" layoutY="140.0" text="Age: 28 years" AnchorPane.leftAnchor="14.0">
+      <Label fx:id="playerAgeLabel" layoutX="14.0" layoutY="180.0" text="Age: 28 years" AnchorPane.leftAnchor="14.0">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Label fx:id="playerSalaryLabel" layoutX="279.0" layoutY="170.0" text="Weekly Salary: $94923123" textAlignment="CENTER" AnchorPane.rightAnchor="15.0">
+      <Label fx:id="playerSalaryLabel" layoutX="279.0" layoutY="205.0" text="Weekly Salary: $94923123" textAlignment="CENTER" AnchorPane.rightAnchor="14.0">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Label fx:id="playerHeightLabel" layoutX="14.0" layoutY="170.0" text="Height: 1.71 meters" AnchorPane.leftAnchor="14.0">
+      <Label fx:id="playerHeightLabel" layoutX="14.0" layoutY="205.0" text="Height: 1.71 meters" AnchorPane.leftAnchor="14.0">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <HBox alignment="CENTER_LEFT" layoutX="14.0" layoutY="88.0" prefHeight="53.0" prefWidth="298.0" AnchorPane.leftAnchor="14.0">
+      <HBox alignment="CENTER_LEFT" layoutX="14.0" layoutY="88.0" prefHeight="53.0" prefWidth="298.0" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="95.0">
          <children>
             <Label fx:id="playerClubLabel" text="Manchester United">
                <font>
@@ -63,5 +63,10 @@
             </Label>
          </children>
       </HBox>
+      <Label fx:id="playerNumberLabel" layoutX="412.0" layoutY="182.0" text="Number: 45" AnchorPane.rightAnchor="14.0">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

@@ -36,6 +36,9 @@ public class PlayerDetailsWindowController implements Initializable {
     @FXML
     private Label playerHeightLabel;
 
+    @FXML
+    private Label playerNumberLabel;
+
     public void setData(Player player) {
         playerImage.setImage(new Image(getClass().getResourceAsStream(player.getImgSource())));
         playerNameLabel.setText(player.getName());
@@ -44,6 +47,7 @@ public class PlayerDetailsWindowController implements Initializable {
         playerCountryLabel.setText(player.getCountry());
         playerAgeLabel.setText("Age: " + player.getAge());
         playerHeightLabel.setText("Height: " + player.getHeight());
+        playerNumberLabel.setText("Number: " + player.getNumber());
         playerSalaryLabel.setText("Weekly Salary: " + String.format("%,.2f", player.getSalary()) + " USD");
     }
 
