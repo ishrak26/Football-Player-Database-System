@@ -206,12 +206,12 @@
                                  <children>
                                     <HBox alignment="CENTER" layoutX="-1.0" layoutY="23.0" prefHeight="51.0" prefWidth="205.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
                                        <children>
-                                          <Button contentDisplay="CENTER" mnemonicParsing="false" text="Apply Filters" textAlignment="CENTER">
+                                          <Button fx:id="applyFiltersButton" contentDisplay="CENTER" mnemonicParsing="false" onAction="#applyFilters" text="Apply Filters" textAlignment="CENTER">
                                              <HBox.margin>
                                                 <Insets right="5.0" />
                                              </HBox.margin>
                                           </Button>
-                                          <Button contentDisplay="CENTER" mnemonicParsing="false" text="Reset Filters" textAlignment="CENTER">
+                                          <Button fx:id="resetFiltersButton" contentDisplay="CENTER" mnemonicParsing="false" onAction="#resetFilters" text="Reset Filters" textAlignment="CENTER">
                                              <HBox.margin>
                                                 <Insets left="5.0" />
                                              </HBox.margin>

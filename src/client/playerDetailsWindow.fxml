@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="204.0" prefWidth="454.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.PlayerDetailsWindowController">
+   <children>
+      <ImageView fx:id="playerImage" fitHeight="223.0" fitWidth="166.0" layoutX="288.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/player/David_de_Gea.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="playerNameLabel" layoutX="14.0" layoutY="14.0" text="David de Gea">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Label>
+      <Label fx:id="playerPositionLabel" layoutX="14.0" layoutY="58.0" text="Goalkeeper">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Label fx:id="playerClubLabel" layoutX="14.0" layoutY="102.0" text="Manchester United">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Separator layoutX="178.0" layoutY="95.0" orientation="VERTICAL" prefHeight="42.0" prefWidth="6.0" />
+      <Label fx:id="playerCountryLabel" layoutX="194.0" layoutY="102.0" text="Spain">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="playerAgeLabel" layoutX="14.0" layoutY="140.0" text="Age: 28 years">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="playerSalaryLabel" layoutX="279.0" layoutY="170.0" text="Weekly Salary: $94923123" textAlignment="CENTER" AnchorPane.rightAnchor="15.0">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="playerHeightLabel" layoutX="14.0" layoutY="170.0" text="Height: 1.71 meters">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
