@@ -37,22 +37,17 @@ public class PlayerCardController {
         try {
             Stage window = new Stage();
             window.initModality(Modality.APPLICATION_MODAL);
+            window.setTitle(player.getName());
+
             FXMLLoader fxmlLoader = new FXMLLoader();
             fxmlLoader.setLocation(getClass().getResource("/client/playerDetailsWindow.fxml"));
-//            System.out.println("Debug-Test#1: " + (fxmlLoader == null));
-//            System.out.println("Debug-Test#2: " + fxmlLoader.getController().getClass());
-            Object obj = fxmlLoader.getController();
-            System.out.println("Debug-Test#4: " + (obj == null));
-            System.out.println("Debug-Test#5: " + (obj instanceof PlayerDetailsWindowController));
+            Parent root = fxmlLoader.load();
+
             PlayerDetailsWindowController playerDetails = fxmlLoader.getController();
-//            System.out.println("Debug-Test#3: " + (playerDetails == null));
             playerDetails.setData(player);
 
-            Parent root = fxmlLoader.load();
-            System.out.println("Debug-Test#6: " + (root == null));
             Scene scene = new Scene(root);
             window.setScene(scene);
-            window.setTitle(player.getName());
             window.showAndWait();
 
         } catch (IOException e) {

@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
 
@@ -15,28 +17,17 @@
             <Image url="@../images/player/David_de_Gea.png" />
          </image>
       </ImageView>
-      <Label fx:id="playerNameLabel" layoutX="14.0" layoutY="14.0" text="David de Gea">
+      <Label fx:id="playerNameLabel" layoutX="14.0" layoutY="14.0" text="David de Gea" AnchorPane.leftAnchor="14.0">
          <font>
             <Font size="36.0" />
          </font>
       </Label>
-      <Label fx:id="playerPositionLabel" layoutX="14.0" layoutY="58.0" text="Goalkeeper">
+      <Label fx:id="playerPositionLabel" layoutX="14.0" layoutY="58.0" text="Goalkeeper" AnchorPane.leftAnchor="14.0">
          <font>
             <Font size="24.0" />
          </font>
       </Label>
-      <Label fx:id="playerClubLabel" layoutX="14.0" layoutY="102.0" text="Manchester United">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
-      <Separator layoutX="178.0" layoutY="95.0" orientation="VERTICAL" prefHeight="42.0" prefWidth="6.0" />
-      <Label fx:id="playerCountryLabel" layoutX="194.0" layoutY="102.0" text="Spain">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
-      <Label fx:id="playerAgeLabel" layoutX="14.0" layoutY="140.0" text="Age: 28 years">
+      <Label fx:id="playerAgeLabel" layoutX="14.0" layoutY="140.0" text="Age: 28 years" AnchorPane.leftAnchor="14.0">
          <font>
             <Font size="14.0" />
          </font>
@@ -46,10 +37,31 @@
             <Font size="14.0" />
          </font>
       </Label>
-      <Label fx:id="playerHeightLabel" layoutX="14.0" layoutY="170.0" text="Height: 1.71 meters">
+      <Label fx:id="playerHeightLabel" layoutX="14.0" layoutY="170.0" text="Height: 1.71 meters" AnchorPane.leftAnchor="14.0">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
+      <HBox alignment="CENTER_LEFT" layoutX="14.0" layoutY="88.0" prefHeight="53.0" prefWidth="298.0" AnchorPane.leftAnchor="14.0">
+         <children>
+            <Label fx:id="playerClubLabel" text="Manchester United">
+               <font>
+                  <Font size="18.0" />
+               </font>
+               <HBox.margin>
+                  <Insets right="10.0" />
+               </HBox.margin>
+            </Label>
+            <Separator orientation="VERTICAL" prefHeight="53.0" prefWidth="0.0" />
+            <Label fx:id="playerCountryLabel" text="Spain">
+               <font>
+                  <Font size="18.0" />
+               </font>
+               <HBox.margin>
+                  <Insets left="7.0" />
+               </HBox.margin>
+            </Label>
+         </children>
+      </HBox>
    </children>
 </AnchorPane>
