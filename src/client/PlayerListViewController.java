@@ -28,7 +28,7 @@ public class PlayerListViewController {
             for (Player player :
                     playerList) {
                 FXMLLoader fxmlLoader = new FXMLLoader();
-                fxmlLoader.setLocation(getClass().getResource("/client/playerCard.fxml"));
+                fxmlLoader.setLocation(getClass().getResource("/views/playerCard.fxml"));
 
                 Parent card = fxmlLoader.load();
 

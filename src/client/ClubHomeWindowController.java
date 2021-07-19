@@ -345,7 +345,7 @@ public class ClubHomeWindowController implements Initializable {
     private void loadPlayerCards(List<Player> playerList) {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader();
-            fxmlLoader.setLocation(getClass().getResource("/client/playerListView.fxml"));
+            fxmlLoader.setLocation(getClass().getResource("/views/playerListView.fxml"));
             Parent root = fxmlLoader.load();
             PlayerListViewController playerListViewController = fxmlLoader.getController();
             playerListViewController.loadPlayerCards(playerList);

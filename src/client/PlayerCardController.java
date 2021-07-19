@@ -40,7 +40,7 @@ public class PlayerCardController {
             window.setTitle(player.getName());
 
             FXMLLoader fxmlLoader = new FXMLLoader();
-            fxmlLoader.setLocation(getClass().getResource("/client/playerDetailsWindow.fxml"));
+            fxmlLoader.setLocation(getClass().getResource("/views/playerDetailsWindow.fxml"));
             Parent root = fxmlLoader.load();
 
             PlayerDetailsWindowController playerDetails = fxmlLoader.getController();

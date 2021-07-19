@@ -14,9 +14,9 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception{
 //        Parent root = FXMLLoader.load(getClass().getResource("home.fxml"));
         FXMLLoader fxmlLoader = new FXMLLoader();
-        fxmlLoader.setLocation(getClass().getResource("/client/clubHomeWindow.fxml"));
+        fxmlLoader.setLocation(getClass().getResource("/views/clubHomeWindow.fxml"));
         Parent root = fxmlLoader.load();
-//        Parent root = FXMLLoader.load(getClass().getResource("/client/playerCard.fxml"));
+//        Parent root = FXMLLoader.load(getClass().getResource("/views/playerCard.fxml"));
         ClubHomeWindowController clubHomeWindowController = fxmlLoader.getController();
         primaryStage.setTitle(clubHomeWindowController.getClubName());
         Scene scene = new Scene(root);

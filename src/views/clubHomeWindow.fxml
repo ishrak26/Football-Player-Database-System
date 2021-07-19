@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600.0" prefWidth="1100.0" styleClass="window" stylesheets="@clubHomeWindow.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.ClubHomeWindowController">
+<AnchorPane prefHeight="600.0" prefWidth="1100.0" styleClass="window" stylesheets="@../styles/clubHomeWindow.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.ClubHomeWindowController">
    <children>
       <BorderPane prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <left>
@@ -34,7 +34,7 @@
                   </HBox>
                   <HBox alignment="CENTER">
                      <children>
-                        <Label fx:id="clubNameFirstLine" alignment="CENTER" contentDisplay="CENTER" styleClass="clubName" stylesheets="@clubHomeWindow.css" text="MANCHESTER" textAlignment="CENTER">
+                        <Label fx:id="clubNameFirstLine" alignment="CENTER" contentDisplay="CENTER" styleClass="clubName" stylesheets="@../styles/clubHomeWindow.css" text="MANCHESTER" textAlignment="CENTER">
                            <HBox.margin>
                               <Insets left="10.0" right="10.0" />
                            </HBox.margin>
@@ -49,7 +49,7 @@
                   </HBox>
                   <HBox alignment="CENTER" layoutX="10.0" layoutY="235.0">
                      <children>
-                        <Label fx:id="clubNameSecondLine" alignment="CENTER" contentDisplay="CENTER" styleClass="clubName" stylesheets="@clubHomeWindow.css" text="UNITED" textAlignment="CENTER">
+                        <Label fx:id="clubNameSecondLine" alignment="CENTER" contentDisplay="CENTER" styleClass="clubName" stylesheets="@../styles/clubHomeWindow.css" text="UNITED" textAlignment="CENTER">
                            <HBox.margin>
                               <Insets left="10.0" right="10.0" />
                            </HBox.margin>
