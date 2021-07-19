@@ -58,10 +58,7 @@ public class ClubHomeWindowController implements Initializable {
     private Button resetPlayerNameButton;
 
     @FXML
-    private Button buyPlayerButton;
-
-    @FXML
-    private Button logoutButton;
+    private MenuButton clubMenuButton;
 
     @FXML
     private HBox listPlayerHBox;
@@ -285,6 +282,19 @@ public class ClubHomeWindowController implements Initializable {
         initClubInfo();
         loadPlayerCards(club.getPlayers());
         makeFilterTree();
+
+        makeMenu();
+
+    }
+
+    private void makeMenu() {
+        clubMenuButton.setText("");
+        ImageView imageView = new ImageView(new Image(getClass().getResourceAsStream(club.getImgSource())));
+        imageView.setFitHeight(25);
+        imageView.setPreserveRatio(true);
+        imageView.setSmooth(true);
+        imageView.setCache(true);
+        clubMenuButton.setGraphic(imageView);
     }
 
     private void makeFilterTree() {
@@ -330,7 +340,8 @@ public class ClubHomeWindowController implements Initializable {
 
     private void initClubInfo() {
         String clubName = this.clubName.replace(' ', '_');
-        logoImgSource = "/images/logo/" + clubName + ".png";
+        String testLogoImgSource = "/images/logo/" + clubName + ".png";
+        logoImgSource = this.club.getImgSource();
         clubLogoImage.setImage(new Image(getClass().getResourceAsStream(logoImgSource)));
         String[] words = clubName.split("_");
         clubNameFirstLine.setText(words[0].toUpperCase());

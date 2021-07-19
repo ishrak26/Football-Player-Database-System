@@ -11,6 +11,7 @@ public class Club implements Serializable {
     private List<Player> players;
     private double budget;
     private Set<String> countrySet;
+    private String imgSource;
 
     private final int MAX_PLAYER_LIMIT = 7;
 
@@ -22,7 +23,7 @@ public class Club implements Serializable {
     public Club(Player player) {
         players = new ArrayList<>();
         countrySet = new HashSet<>();
-        name = player.getClub();
+        setName(player.getClub());
         addPlayer(player);
     }
 
@@ -32,6 +33,7 @@ public class Club implements Serializable {
 
     public void setName(String name) {
         this.name = name;
+        setImgSource("/images/logo/" + name.replace(' ', '_') + ".png");
     }
 
     public int getPlayerCount() {
@@ -52,6 +54,14 @@ public class Club implements Serializable {
 
     public void setBudget(double budget) {
         this.budget = budget;
+    }
+
+    public String getImgSource() {
+        return imgSource;
+    }
+
+    public void setImgSource(String imgSource) {
+        this.imgSource = imgSource;
     }
 
     public Set<String> getCountrySet() {
