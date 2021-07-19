@@ -35,6 +35,8 @@ public class PlayerListViewController {
                 PlayerCardController playerCardController = fxmlLoader.getController();
                 playerCardController.setData(player);
 
+                card.setOnMouseClicked(playerCardController::selectPlayer);
+
                 gridPane.add(card, col, row++);
                 //set grid width
                 gridPane.setMinWidth(Region.USE_COMPUTED_SIZE);

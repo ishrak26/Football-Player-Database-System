@@ -10,6 +10,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
@@ -54,6 +55,11 @@ public class PlayerCardController {
             e.printStackTrace();
         }
 
+    }
+
+    @FXML
+    public void selectPlayer(MouseEvent event) {
+        System.out.println(this.player.getName());
     }
 
     public void setData(Player player) {

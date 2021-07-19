@@ -108,6 +108,7 @@ public class ClubHomeWindowController implements Initializable {
     private Club club;
     private String clubName;
     private String logoImgSource;
+    private List<Player> playerListOnDisplay;
     private boolean aBoolean = false;
 
     @FXML
@@ -367,6 +368,8 @@ public class ClubHomeWindowController implements Initializable {
             playerListViewController.loadPlayerCards(playerList);
             playerListVBox.getChildren().clear();
             playerListVBox.getChildren().add(root);
+
+            this.playerListOnDisplay = new ArrayList<>(playerList);
 
 //            System.out.println("The list of players is: ");
 //            for (Player player:

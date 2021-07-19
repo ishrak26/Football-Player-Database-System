@@ -136,7 +136,7 @@
                                     <MenuItem mnemonicParsing="false" style="-fx-text-alignment: left;" text="Sign out" />
                                 </items>
                                  <HBox.margin>
-                                    <Insets right="10.0" />
+                                    <Insets right="15.0" />
                                  </HBox.margin>
                               </MenuButton>
                            </children>
@@ -206,9 +206,9 @@
                                     <Label layoutX="14.0" layoutY="14.0" text="Age" />
                                     <Label layoutX="14.0" layoutY="62.0" text="Height" />
                                     <Label layoutX="14.0" layoutY="108.0" text="Salary" />
-                                    <TextField fx:id="ageFromTextField" layoutX="66.0" layoutY="10.0" prefHeight="25.0" prefWidth="85.0" promptText="From" />
-                                    <TextField fx:id="ageToTextField" layoutX="172.0" layoutY="10.0" prefHeight="25.0" prefWidth="85.0" promptText="To" AnchorPane.rightAnchor="15.0" />
-                                    <TextField fx:id="heightFromTextField" layoutX="66.0" layoutY="58.0" prefHeight="25.0" prefWidth="85.0" promptText="From" />
+                                    <TextField fx:id="ageFromTextField" layoutX="66.0" layoutY="10.0" prefHeight="25.0" prefWidth="85.0" promptText="From (years)" />
+                                    <TextField fx:id="ageToTextField" layoutX="172.0" layoutY="10.0" prefHeight="25.0" prefWidth="85.0" promptText="To (years)" AnchorPane.rightAnchor="15.0" />
+                                    <TextField fx:id="heightFromTextField" layoutX="66.0" layoutY="58.0" prefHeight="25.0" prefWidth="85.0" promptText="From (meters)" />
                                     <TextField fx:id="salaryFromTextField" layoutX="66.0" layoutY="104.0" prefHeight="25.0" prefWidth="85.0" promptText="From" />
                                     <TextField fx:id="heightToTextField" layoutX="166.0" layoutY="58.0" prefHeight="25.0" prefWidth="85.0" promptText="To" AnchorPane.rightAnchor="15.0" />
                                     <TextField fx:id="salaryToTextField" layoutX="137.0" layoutY="104.0" prefHeight="25.0" prefWidth="85.0" promptText="To" AnchorPane.rightAnchor="15.0" />
