@@ -287,6 +287,9 @@ public class ClubHomeWindowController implements Initializable {
 
     }
 
+    @FXML
+    private MenuItem testMenuItem;
+
     private void makeMenu() {
         clubMenuButton.setText("");
         ImageView imageView = new ImageView(new Image(getClass().getResourceAsStream(club.getImgSource())));
@@ -295,6 +298,8 @@ public class ClubHomeWindowController implements Initializable {
         imageView.setSmooth(true);
         imageView.setCache(true);
         clubMenuButton.setGraphic(imageView);
+
+
     }
 
     private void makeFilterTree() {

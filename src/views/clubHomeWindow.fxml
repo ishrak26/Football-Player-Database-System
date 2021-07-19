@@ -5,6 +5,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.MenuButton?>
 <?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SeparatorMenuItem?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.TreeView?>
 <?import javafx.scene.image.Image?>
@@ -96,7 +97,7 @@
                <children>
                   <HBox fx:id="topBarHBox" alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                      <children>
-                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="344.0">
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="515.0" HBox.hgrow="ALWAYS">
                            <children>
                               <TextField fx:id="searchPlayerNameTextField" prefWidth="200.0" promptText="Type Player's Name...">
                                  <HBox.margin>
@@ -107,24 +108,35 @@
                                  <HBox.margin>
                                     <Insets right="10.0" />
                                  </HBox.margin></Button>
-                              <Button fx:id="resetPlayerNameButton" mnemonicParsing="false" onAction="#resetPlayerNameTextField" text="Reset" />
+                              <Button fx:id="resetPlayerNameButton" mnemonicParsing="false" onAction="#resetPlayerNameTextField" text="Clear" />
                            </children>
                            <padding>
                               <Insets left="10.0" right="10.0" />
                            </padding></HBox>
-                        <Pane prefHeight="100.0" prefWidth="358.0" HBox.hgrow="ALWAYS" />
-                        <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="243.0">
+                        <Pane prefHeight="100.0" prefWidth="154.0" HBox.hgrow="ALWAYS" />
+                        <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="206.0" HBox.hgrow="ALWAYS">
                            <HBox.margin>
                               <Insets />
                            </HBox.margin>
                            <children>
-                              <MenuButton fx:id="clubMenuButton" mnemonicParsing="false">
+                              <MenuButton fx:id="clubMenuButton" alignment="CENTER" contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" prefHeight="25.0" prefWidth="71.0">
                                 <items>
-                                  <MenuItem mnemonicParsing="false" text="Action 1" />
-                                  <MenuItem mnemonicParsing="false" text="Action 2" />
+                                    <MenuItem mnemonicParsing="false" text="Signed in as Manchester United" />
+                                    <SeparatorMenuItem mnemonicParsing="false">
+                                       <content>
+                                          <MenuButton mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" popupSide="RIGHT" text="Statistics">
+                                            <items>
+                                                <MenuItem mnemonicParsing="false" text="Maximum Age" />
+                                              <MenuItem mnemonicParsing="false" text="Maximum Height" />
+                                              <MenuItem mnemonicParsing="false" text="Maximum Salary" />
+                                            </items>
+                                          </MenuButton>
+                                       </content></SeparatorMenuItem>
+                                  <MenuItem fx:id="testMenuItem" mnemonicParsing="false" text="Change Password" />
+                                    <MenuItem mnemonicParsing="false" style="-fx-text-alignment: left;" text="Sign out" />
                                 </items>
                                  <HBox.margin>
-                                    <Insets right="10.0" />
+                                    <Insets right="15.0" />
                                  </HBox.margin>
                               </MenuButton>
                            </children>
@@ -194,9 +206,9 @@
                                     <Label layoutX="14.0" layoutY="14.0" text="Age" />
                                     <Label layoutX="14.0" layoutY="62.0" text="Height" />
                                     <Label layoutX="14.0" layoutY="108.0" text="Salary" />
-                                    <TextField fx:id="ageFromTextField" layoutX="66.0" layoutY="10.0" prefHeight="25.0" prefWidth="85.0" promptText="From" />
-                                    <TextField fx:id="ageToTextField" layoutX="172.0" layoutY="10.0" prefHeight="25.0" prefWidth="85.0" promptText="To" AnchorPane.rightAnchor="15.0" />
-                                    <TextField fx:id="heightFromTextField" layoutX="66.0" layoutY="58.0" prefHeight="25.0" prefWidth="85.0" promptText="From" />
+                                    <TextField fx:id="ageFromTextField" layoutX="66.0" layoutY="10.0" prefHeight="25.0" prefWidth="85.0" promptText="From (years)" />
+                                    <TextField fx:id="ageToTextField" layoutX="172.0" layoutY="10.0" prefHeight="25.0" prefWidth="85.0" promptText="To (years)" AnchorPane.rightAnchor="15.0" />
+                                    <TextField fx:id="heightFromTextField" layoutX="66.0" layoutY="58.0" prefHeight="25.0" prefWidth="85.0" promptText="From (meters)" />
                                     <TextField fx:id="salaryFromTextField" layoutX="66.0" layoutY="104.0" prefHeight="25.0" prefWidth="85.0" promptText="From" />
                                     <TextField fx:id="heightToTextField" layoutX="166.0" layoutY="58.0" prefHeight="25.0" prefWidth="85.0" promptText="To" AnchorPane.rightAnchor="15.0" />
                                     <TextField fx:id="salaryToTextField" layoutX="137.0" layoutY="104.0" prefHeight="25.0" prefWidth="85.0" promptText="To" AnchorPane.rightAnchor="15.0" />
