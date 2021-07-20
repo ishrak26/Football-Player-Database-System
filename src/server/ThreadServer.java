@@ -34,7 +34,7 @@ public class ThreadServer implements Runnable {
                         String clubName = msg.getMessage();
                         networkUtil.write(server.db.searchClub(clubName));
                     } else if (msg.getMessageHeader() == MessageHeader.TRANSFER_WINDOW) {
-                        networkUtil.write(server.transferPlayerList);
+                        networkUtil.write(server.getTransferPlayerList());
                     }
                 } else if (obj instanceof LoginInfo) {
                     LoginInfo loginInfo = (LoginInfo) obj;

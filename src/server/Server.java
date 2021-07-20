@@ -17,12 +17,15 @@ import java.util.stream.Collectors;
 public class Server {
     Database db;
     private FileOperations fileOperations;
-    List<Player> transferPlayerList;
-//    List<ClientInfo> clientList;
-    HashMap<String, ClientInfo> clientMap;
+    private List<Player> transferPlayerList;
+    private HashMap<String, ClientInfo> clientMap;
+
+    public static void main(String[] args) {
+        int port = 45045;
+        new Server(port);
+    }
 
     public Server(int port) {
-//        clientList = new ArrayList<>();
         clientMap = new HashMap<>();
         transferPlayerList = new ArrayList<>();
         try {
@@ -37,6 +40,10 @@ public class Server {
         }
     }
 
+    public List<Player> getTransferPlayerList() {
+        return transferPlayerList;
+    }
+
     private void loadDatabase() throws IOException {
         db = new Database();
         fileOperations = new FileOperations();
@@ -46,11 +53,6 @@ public class Server {
     private void serve(Socket socket) throws IOException {
         NetworkUtil networkUtil = new NetworkUtil(socket);
         new ThreadServer(networkUtil, this);
-    }
-
-    public static void main(String[] args) {
-        int port = 45045;
-        new Server(port);
     }
 
     synchronized public void sellPlayer(Player player, String newClubName) {
