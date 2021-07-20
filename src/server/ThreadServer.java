@@ -39,9 +39,13 @@ public class ThreadServer implements Runnable {
                 } else if (obj instanceof LoginInfo) {
                     LoginInfo loginInfo = (LoginInfo) obj;
                     if (loginInfo.getMessageHeader() == MessageHeader.REGISTER) {
-                        networkUtil.write(server.registerClub(loginInfo.getUsername(), loginInfo.getPassword(), networkUtil));
+                        networkUtil.write(server.registerClub(
+                                loginInfo.getUsername(), loginInfo.getPassword(), networkUtil));
                     } else if (loginInfo.getMessageHeader() == MessageHeader.LOGIN) {
-
+                        networkUtil.write(server.loginClub(loginInfo.getUsername(), loginInfo.getPassword()));
+                    } else if (loginInfo.getMessageHeader() == MessageHeader.CHANGE_PASS) {
+                        networkUtil.write(server.changePassword(loginInfo.getUsername(), loginInfo.getPassword(),
+                                loginInfo.getNewPassword()));
                     }
                 }
             } catch (IOException | ClassNotFoundException e) {
