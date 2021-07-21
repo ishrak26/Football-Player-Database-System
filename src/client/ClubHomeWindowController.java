@@ -400,6 +400,21 @@ public class ClubHomeWindowController implements Initializable {
         }
     }
 
+    @FXML
+    void listMaxAgePlayers(ActionEvent event) {
+        loadPlayerCards(club.getMaxAgePlayers());
+    }
+
+    @FXML
+    void listMaxHeightPlayers(ActionEvent event) {
+        loadPlayerCards(club.getMaxHeightPlayers());
+    }
+
+    @FXML
+    void listMaxSalaryPlayers(ActionEvent event) {
+        loadPlayerCards(club.getMaxSalaryPlayers());
+    }
+
     public String getClubName() {
         return clubName;
     }

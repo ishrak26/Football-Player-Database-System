@@ -126,9 +126,9 @@
                                        <content>
                                           <MenuButton mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" popupSide="RIGHT" text="Statistics">
                                             <items>
-                                                <MenuItem mnemonicParsing="false" text="Maximum Age" />
-                                              <MenuItem mnemonicParsing="false" text="Maximum Height" />
-                                              <MenuItem mnemonicParsing="false" text="Maximum Salary" />
+                                                <MenuItem mnemonicParsing="false" onAction="#listMaxAgePlayers" text="Maximum Age" />
+                                              <MenuItem mnemonicParsing="false" onAction="#listMaxHeightPlayers" text="Maximum Height" />
+                                              <MenuItem mnemonicParsing="false" onAction="#listMaxSalaryPlayers" text="Maximum Salary" />
                                             </items>
                                           </MenuButton>
                                        </content></SeparatorMenuItem>

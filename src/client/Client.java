@@ -82,8 +82,8 @@ public class Client extends Application {
 
         stage.setTitle(clubName);
         stage.setScene(scene);
-        stage.setX(0);
-        stage.setY(0);
+        stage.setX(10);
+        stage.setY(10);
         stage.show();
     }
 
