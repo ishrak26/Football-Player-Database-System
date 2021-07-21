@@ -314,10 +314,7 @@ public class ClubHomeWindowController {
         root = new TreeItem<>();
         root.setExpanded(true);
 
-        makeBranchFilterTree("Goalkeeper", root);
-        makeBranchFilterTree("Defender", root);
-        makeBranchFilterTree("Midfielder", root);
-        makeBranchFilterTree("Forward", root);
+        this.club.getPositionList().forEach(e -> makeBranchFilterTree(e, root));
 
         filterTreePosition.setRoot(root);
         filterTreePosition.setShowRoot(false);
@@ -328,10 +325,7 @@ public class ClubHomeWindowController {
         root = new TreeItem<>();
         root.setExpanded(true);
 
-        for (String country:
-             club.getCountrySet()) {
-            makeBranchFilterTree(country, root);
-        }
+        club.getCountryList().forEach(e -> makeBranchFilterTree(e, root));
 
         filterTreeCountry.setRoot(root);
         filterTreeCountry.setShowRoot(false);
@@ -421,6 +415,7 @@ public class ClubHomeWindowController {
         boolean b = client.sellPlayer(playerName);
         if (b) {
             this.club.removePlayer(playerName);
+            makeFilterTree();
             loadPlayerCards(this.club.getPlayers());
         }
     }

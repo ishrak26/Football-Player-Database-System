@@ -1,28 +1,22 @@
 package data.database;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 public class Club implements Serializable {
     private String name;
     private List<Player> players;
     private double budget;
-    private Set<String> countrySet;
     private String imgSource;
 
     private final int MAX_PLAYER_LIMIT = 7;
 
     public Club() {
         players = new ArrayList<>();
-        countrySet = new HashSet<>();
     }
 
     public Club(Player player) {
         players = new ArrayList<>();
-        countrySet = new HashSet<>();
         setName(player.getClub());
         addPlayer(player);
     }
@@ -64,12 +58,16 @@ public class Club implements Serializable {
         this.imgSource = imgSource;
     }
 
-    public Set<String> getCountrySet() {
-        return countrySet;
+    public List<String> getCountryList() {
+        Set<String> countrySet = new LinkedHashSet<>();
+        this.players.forEach(e -> countrySet.add(e.getCountry()));
+        return new ArrayList<>(countrySet);
     }
 
-    public void setCountrySet(Set<String> countrySet) {
-        this.countrySet = countrySet;
+    public List<String> getPositionList() {
+        Set<String> positionSet = new LinkedHashSet<>();
+        this.players.forEach(e -> positionSet.add(e.getPosition()));
+        return new ArrayList<>(positionSet);
     }
 
     public int getMaxPlayerLimit() {
@@ -78,7 +76,6 @@ public class Club implements Serializable {
 
     public void addPlayer(Player player) {
         players.add(player);
-        countrySet.add(player.getCountry());
     }
 
     public List<Player> getMaxSalaryPlayers() {
