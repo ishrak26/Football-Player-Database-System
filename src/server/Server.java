@@ -113,4 +113,12 @@ public class Server {
         }
         return false;
     }
+
+    synchronized public boolean logoutClub(String username) {
+        if (clientMap.containsKey(username) && clientMap.get(username).isLoggedIn()) {
+            clientMap.get(username).setLoggedIn(false);
+            return true;
+        }
+        return false;
+    }
 }

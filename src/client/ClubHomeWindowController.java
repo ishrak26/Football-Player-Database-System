@@ -109,6 +109,8 @@ public class ClubHomeWindowController implements Initializable {
     private String clubName;
     private String logoImgSource;
     private List<Player> playerListOnDisplay;
+    private Client client;
+
     private boolean aBoolean = false;
 
     @FXML
@@ -283,7 +285,9 @@ public class ClubHomeWindowController implements Initializable {
 
     }
 
-    public void init() {
+    public void init(Client client, String clubName) {
+        this.client = client;
+        this.clubName = clubName;
         loadClubData();
         initClubInfo();
         loadPlayerCards(club.getPlayers());
@@ -402,5 +406,10 @@ public class ClubHomeWindowController implements Initializable {
 
     public void setClubName(String clubName) {
         this.clubName = clubName;
+    }
+
+    @FXML
+    void logoutClub(ActionEvent event) {
+        client.logoutClub(this.clubName);
     }
 }

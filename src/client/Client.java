@@ -1,6 +1,7 @@
 package client;
 
 import data.network.LoginInfo;
+import data.network.Message;
 import data.network.MessageHeader;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -74,8 +75,8 @@ public class Client extends Application {
         Parent root = fxmlLoader.load();
 
         ClubHomeWindowController controller = fxmlLoader.getController();
-        controller.setClubName(clubName);
-        controller.init();
+//        controller.setClubName(clubName);
+        controller.init(this, clubName);
 
         Scene scene = new Scene(root);
 
@@ -95,6 +96,21 @@ public class Client extends Application {
                 Boolean b = (Boolean) obj;
                 if (b) System.out.println("registration successful");
                 else System.out.println("registration failure");
+            }
+        } catch (IOException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void logoutClub(String clubName) {
+        try {
+            networkUtil.write(new Message(MessageHeader.LOGOUT, clubName));
+            Object obj = networkUtil.read();
+            if (obj instanceof Boolean) {
+                Boolean b = (Boolean) obj;
+                if (b) {
+                    showLoginPage();
+                }
             }
         } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();

@@ -132,8 +132,8 @@
                                             </items>
                                           </MenuButton>
                                        </content></SeparatorMenuItem>
-                                  <MenuItem fx:id="testMenuItem" mnemonicParsing="false" text="Change Password" />
-                                    <MenuItem mnemonicParsing="false" style="-fx-text-alignment: left;" text="Sign out" />
+                                  <MenuItem mnemonicParsing="false" text="Change Password" />
+                                    <MenuItem mnemonicParsing="false" onAction="#logoutClub" text="Sign out" />
                                 </items>
                                  <HBox.margin>
                                     <Insets right="15.0" />
