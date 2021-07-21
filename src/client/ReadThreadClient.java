@@ -16,13 +16,13 @@ public class ReadThreadClient implements Runnable {
 
     @Override
     public void run() {
-        while (true) {
-            try {
-                Object obj = networkUtil.read();
-
-            } catch (IOException | ClassNotFoundException e) {
-                e.printStackTrace();
-            }
-        }
+//        while (true) {
+//            try {
+//                Object obj = networkUtil.read();
+//
+//            } catch (IOException | ClassNotFoundException e) {
+//                e.printStackTrace();
+//            }
+//        }
     }
 }

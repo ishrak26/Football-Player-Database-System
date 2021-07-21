@@ -33,10 +33,12 @@ public class Server {
             ServerSocket serverSocket = new ServerSocket(port);
             while (true) {
                 Socket clientSocket = serverSocket.accept();
+                System.out.println("client connected");
                 serve(clientSocket);
             }
         } catch (IOException e) {
-            e.printStackTrace();
+//            e.printStackTrace();
+            System.out.println("this is exception while connecting");
         }
     }
 
@@ -52,6 +54,7 @@ public class Server {
 
     private void serve(Socket socket) throws IOException {
         NetworkUtil networkUtil = new NetworkUtil(socket);
+        System.out.println("networkutil for server created");
         new ThreadServer(networkUtil, this);
     }
 
@@ -67,9 +70,13 @@ public class Server {
 
     // returns true if registration is successful, false otherwise
     synchronized public boolean registerClub(String clubName, String password, NetworkUtil networkUtil) {
+        System.out.println("reg req to server: username " + clubName + " password " + password);
         for (String clientName:
              clientMap.keySet()) {
-            if (clientName.equalsIgnoreCase(clubName)) return false;
+            if (clientName.equalsIgnoreCase(clubName)) {
+                System.out.println("reg failure");
+                return false;
+            }
         }
         ClientInfo clientInfo = new ClientInfo();
         clientInfo.setClubName(clubName);
@@ -77,17 +84,22 @@ public class Server {
         clientInfo.setNetworkUtil(networkUtil);
         clientInfo.setLoggedIn(false);
         clientMap.put(clubName, clientInfo);
+        System.out.println("reg success");
         return true;
     }
 
     // returns true if login is successful, false otherwise
     synchronized public boolean loginClub(String username, String password) {
-        if (clientMap.containsKey(username) && clientMap.get(username).getPassword().equals(password)) {
+        System.out.println("login req to server: username " + username + " password " + password);
+        if (clientMap.containsKey(username) && clientMap.get(username).getPassword().equals(password)
+            && !clientMap.get(username).isLoggedIn()) {
             // if the username exists, there must have been set a password during registration
             // so, password cannot be null
             clientMap.get(username).setLoggedIn(true);
+            System.out.println("login successful");
             return true;
         }
+        System.out.println("login unsuccessful");
         return false;
     }
 

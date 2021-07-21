@@ -22,8 +22,8 @@ public class ThreadServer implements Runnable {
 
     @Override
     public void run() {
-        while (true) {
-            try {
+        try {
+            while (true) {
                 Object obj = networkUtil.read();
                 if (obj instanceof Message) {
                     Message msg = (Message) obj;
@@ -37,26 +37,34 @@ public class ThreadServer implements Runnable {
                         networkUtil.write(server.getTransferPlayerList());
                     }
                 } else if (obj instanceof LoginInfo) {
+                    System.out.println("login info object read");
                     LoginInfo loginInfo = (LoginInfo) obj;
                     if (loginInfo.getMessageHeader() == MessageHeader.REGISTER) {
                         networkUtil.write(server.registerClub(
                                 loginInfo.getUsername(), loginInfo.getPassword(), networkUtil));
+                        System.out.println("reg info written");
                     } else if (loginInfo.getMessageHeader() == MessageHeader.LOGIN) {
                         networkUtil.write(server.loginClub(loginInfo.getUsername(), loginInfo.getPassword()));
+                        System.out.println("login info written");
                     } else if (loginInfo.getMessageHeader() == MessageHeader.CHANGE_PASS) {
                         networkUtil.write(server.changePassword(loginInfo.getUsername(), loginInfo.getPassword(),
                                 loginInfo.getNewPassword()));
                     }
                 }
-            } catch (IOException | ClassNotFoundException e) {
-                e.printStackTrace();
-            } finally {
-                try {
-                    networkUtil.closeConnection();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+            }
+        }
+        catch (IOException | ClassNotFoundException e) {
+//                e.printStackTrace();
+            System.out.println("this is exception while reading");
+            System.out.println(e);
+        } finally {
+            try {
+                networkUtil.closeConnection();
+            } catch (IOException e) {
+//                    e.printStackTrace();
+                System.out.println("this is exception while disconnecting");
             }
         }
     }
 }
+

@@ -27,15 +27,17 @@ public class ClubLoginWindowController {
     @FXML
     void login(ActionEvent event) {
         String username = usernameTextField.getText();
-        String password = usernameTextField.getText();
+        String password = passwordTextField.getText();
         client.loginClub(username, password);
+        reset(event);
     }
 
     @FXML
     void register(ActionEvent event) {
         String username = usernameTextField.getText();
-        String password = usernameTextField.getText();
+        String password = passwordTextField.getText();
         client.registerClub(username, password);
+        reset(event);
     }
 
     @FXML
