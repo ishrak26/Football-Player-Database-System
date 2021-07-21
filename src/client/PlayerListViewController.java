@@ -38,7 +38,7 @@ public class PlayerListViewController {
                 playerCardController.setData(player);
                 playerCardController.setClubHomeWindowController(this.clubHomeWindowController);
 
-                card.setOnMouseClicked(playerCardController::selectPlayer);
+                //card.setOnMouseClicked(playerCardController::selectPlayer);
 
                 gridPane.add(card, col, row++);
                 //set grid width

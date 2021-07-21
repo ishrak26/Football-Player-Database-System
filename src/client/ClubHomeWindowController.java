@@ -61,6 +61,9 @@ public class ClubHomeWindowController {
     private MenuButton clubMenuButton;
 
     @FXML
+    private MenuItem usernameMenuItem;
+
+    @FXML
     private HBox listPlayerHBox;
 
     @FXML
@@ -289,9 +292,6 @@ public class ClubHomeWindowController {
         makeMenu();
     }
 
-    @FXML
-    private MenuItem testMenuItem;
-
     private void makeMenu() {
         clubMenuButton.setText("");
         ImageView imageView = new ImageView(new Image(getClass().getResourceAsStream(club.getImgSource())));
@@ -301,7 +301,7 @@ public class ClubHomeWindowController {
         imageView.setCache(true);
         clubMenuButton.setGraphic(imageView);
 
-
+        usernameMenuItem.setText("Signed in as " + clubName);
     }
 
     private void makeFilterTree() {

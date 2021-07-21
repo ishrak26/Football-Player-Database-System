@@ -121,7 +121,7 @@
                            <children>
                               <MenuButton fx:id="clubMenuButton" alignment="CENTER" contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" prefHeight="25.0" prefWidth="71.0">
                                 <items>
-                                    <MenuItem mnemonicParsing="false" text="Signed in as Manchester United" />
+                                    <MenuItem fx:id="usernameMenuItem" disable="true" mnemonicParsing="false" text="Signed in as Manchester United" />
                                     <SeparatorMenuItem mnemonicParsing="false">
                                        <content>
                                           <MenuButton mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" popupSide="RIGHT" text="Statistics">

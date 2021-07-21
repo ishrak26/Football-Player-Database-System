@@ -12,7 +12,6 @@ import javafx.stage.Stage;
 import util.NetworkUtil;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 public class Client extends Application {
@@ -34,10 +33,6 @@ public class Client extends Application {
         showLoginPage();
     }
 
-    public static void main(String[] args) {
-        launch(args);
-    }
-
     private void showLoginPage() throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader();
         fxmlLoader.setLocation(getClass().getResource("/views/clubLoginWindow.fxml"));
@@ -54,24 +49,6 @@ public class Client extends Application {
         stage.setTitle("Home");
         stage.setScene(scene);
         stage.show();
-    }
-
-    public void loginClub(String username, String password) {
-        LoginInfo loginInfo = new LoginInfo(MessageHeader.LOGIN, username, password);
-        try {
-            networkUtil.write(loginInfo);
-            Object obj = networkUtil.read();
-            if (obj instanceof Boolean) {
-                Boolean b = (Boolean) obj;
-                if (b) {
-                    System.out.println("login successful");
-                    showClubHomePage(username);
-                }
-                else System.out.println("login failure");
-            }
-        } catch (IOException | ClassNotFoundException e) {
-            e.printStackTrace();
-        }
     }
 
     private void showClubHomePage(String clubName) throws IOException {
@@ -96,6 +73,24 @@ public class Client extends Application {
         stage.setX(10);
         stage.setY(10);
         stage.show();
+    }
+
+    public void loginClub(String username, String password) {
+        LoginInfo loginInfo = new LoginInfo(MessageHeader.LOGIN, username, password);
+        try {
+            networkUtil.write(loginInfo);
+            Object obj = networkUtil.read();
+            if (obj instanceof Boolean) {
+                Boolean b = (Boolean) obj;
+                if (b) {
+                    System.out.println("login successful");
+                    showClubHomePage(username);
+                }
+                else System.out.println("login failure");
+            }
+        } catch (IOException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 
     public void registerClub(String username, String password) {
@@ -169,5 +164,9 @@ public class Client extends Application {
 
     public NetworkUtil getNetworkUtil() {
         return networkUtil;
+    }
+
+    public static void main(String[] args) {
+        launch(args);
     }
 }

@@ -42,6 +42,16 @@ public class PlayerCardController {
     }
 
     @FXML
+    void hideSellButton(MouseEvent event) {
+        playerSellButton.setVisible(false);
+    }
+
+    @FXML
+    void showSellButton(MouseEvent event) {
+        playerSellButton.setVisible(true);
+    }
+
+    @FXML
     void showPlayerDetails(ActionEvent event) {
 
         try {
@@ -69,7 +79,7 @@ public class PlayerCardController {
     @FXML
     public void selectPlayer(MouseEvent event) {
         System.out.println(this.player.getName());
-        playerSellButton.setVisible(true);
+//        playerSellButton.setVisible(true);
     }
 
     public void setData(Player player) {
