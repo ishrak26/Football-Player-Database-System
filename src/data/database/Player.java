@@ -2,7 +2,9 @@ package data.database;
 
 import javafx.scene.image.Image;
 
-public class Player {
+import java.io.Serializable;
+
+public class Player implements Serializable {
     private String name;
     private String country;
     private int age;

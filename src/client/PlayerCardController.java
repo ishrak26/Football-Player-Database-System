@@ -30,7 +30,16 @@ public class PlayerCardController {
     @FXML
     private Button playerDetailsButton;
 
+    @FXML
+    private Button playerSellButton;
+
     private Player player;
+    private ClubHomeWindowController clubHomeWindowController;
+
+    @FXML
+    void sellPlayer(ActionEvent event) {
+        clubHomeWindowController.sellPlayer(player.getName());
+    }
 
     @FXML
     void showPlayerDetails(ActionEvent event) {
@@ -60,6 +69,7 @@ public class PlayerCardController {
     @FXML
     public void selectPlayer(MouseEvent event) {
         System.out.println(this.player.getName());
+        playerSellButton.setVisible(true);
     }
 
     public void setData(Player player) {
@@ -69,4 +79,11 @@ public class PlayerCardController {
         playerImage.setImage(new Image(getClass().getResourceAsStream(player.getImgSource())));
     }
 
+    public ClubHomeWindowController getClubHomeWindowController() {
+        return clubHomeWindowController;
+    }
+
+    public void setClubHomeWindowController(ClubHomeWindowController clubHomeWindowController) {
+        this.clubHomeWindowController = clubHomeWindowController;
+    }
 }

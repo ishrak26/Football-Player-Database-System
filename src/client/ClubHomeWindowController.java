@@ -25,7 +25,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.ResourceBundle;
 
-public class ClubHomeWindowController implements Initializable {
+public class ClubHomeWindowController {
 
     @FXML
     private ImageView clubLogoImage;
@@ -278,13 +278,6 @@ public class ClubHomeWindowController implements Initializable {
         applyFilters(event);
     }
 
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-//        clubName = "Manchester United";
-
-
-    }
-
     public void init(Client client, String clubName) {
         this.client = client;
         this.clubName = clubName;
@@ -371,8 +364,11 @@ public class ClubHomeWindowController implements Initializable {
             FXMLLoader fxmlLoader = new FXMLLoader();
             fxmlLoader.setLocation(getClass().getResource("/views/playerListView.fxml"));
             Parent root = fxmlLoader.load();
+
             PlayerListViewController playerListViewController = fxmlLoader.getController();
+            playerListViewController.setClubHomeWindowController(this);
             playerListViewController.loadPlayerCards(playerList);
+
             playerListVBox.getChildren().clear();
             playerListVBox.getChildren().add(root);
 
@@ -390,14 +386,7 @@ public class ClubHomeWindowController implements Initializable {
     }
 
     private void loadClubData() {
-        FileOperations fileOperations = new FileOperations();
-        Database db = new Database();
-        try {
-            fileOperations.readFromFile(db);
-            this.club = db.searchClub(this.clubName);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        this.club = client.loadClubFromServer(this.clubName);
     }
 
     @FXML
@@ -426,5 +415,13 @@ public class ClubHomeWindowController implements Initializable {
     @FXML
     void logoutClub(ActionEvent event) {
         client.logoutClub(this.clubName);
+    }
+
+    public void sellPlayer(String playerName) {
+        boolean b = client.sellPlayer(playerName);
+        if (b) {
+            this.club.removePlayer(playerName);
+            loadPlayerCards(this.club.getPlayers());
+        }
     }
 }

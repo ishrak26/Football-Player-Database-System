@@ -8,9 +8,10 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
 
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 
-public class ClubLoginWindowController implements Initializable {
+public class ClubLoginWindowController {
 
     @FXML
     private ChoiceBox<String> usernameChoiceBox;
@@ -59,14 +60,19 @@ public class ClubLoginWindowController implements Initializable {
         this.client = client;
     }
 
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
+    public void init() {
         initializeUsernameChoiceBox();
     }
 
     private void initializeUsernameChoiceBox() {
-        usernameChoiceBox.getItems().addAll(
-          "Manchester United", "Manchester City", "Arsenal"
-        );
+//        usernameChoiceBox.getItems().addAll(
+//          "Manchester United", "Manchester City", "Arsenal"
+//        );
+        List<?> clubList = client.loadClubList();
+        clubList.forEach(e -> {
+            if (e instanceof String) {
+                usernameChoiceBox.getItems().add((String) e);
+            }
+        });
     }
 }

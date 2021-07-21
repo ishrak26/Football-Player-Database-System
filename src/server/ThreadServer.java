@@ -29,7 +29,7 @@ public class ThreadServer implements Runnable {
                     Message msg = (Message) obj;
                     if (msg.getMessageHeader() == MessageHeader.SELL) {
                         String playerName = msg.getMessage();
-                        server.addToTransferWindow(server.db.searchPlayerByName(playerName));
+                        networkUtil.write(server.addToTransferWindow(playerName));
                     } else if (msg.getMessageHeader() == MessageHeader.CLUB_INFO) {
                         String clubName = msg.getMessage();
                         networkUtil.write(server.db.searchClub(clubName));
@@ -37,6 +37,8 @@ public class ThreadServer implements Runnable {
                         networkUtil.write(server.getTransferPlayerList());
                     } else if (msg.getMessageHeader() == MessageHeader.LOGOUT) {
                         networkUtil.write(server.logoutClub(msg.getMessage()));
+                    } else if (msg.getMessageHeader() == MessageHeader.CLUB_LIST) {
+                        networkUtil.write(server.sendClubList());
                     }
                 } else if (obj instanceof LoginInfo) {
                     System.out.println("login info object read");
@@ -62,6 +64,7 @@ public class ThreadServer implements Runnable {
         } finally {
             try {
                 networkUtil.closeConnection();
+                System.out.println("disconnected successfully");
             } catch (IOException e) {
 //                    e.printStackTrace();
                 System.out.println("this is exception while disconnecting");

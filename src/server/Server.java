@@ -63,9 +63,12 @@ public class Server {
         player.setClub(newClubName);
     }
 
-    synchronized public void addToTransferWindow(Player player) {
+    synchronized public boolean addToTransferWindow(String playerName) {
         // player will not be null
-        transferPlayerList.add(player);
+        db.removePlayerFromClub(playerName);
+        transferPlayerList.add(db.searchPlayerByName(playerName));
+        System.out.println(transferPlayerList);
+        return true;
     }
 
     // returns true if registration is successful, false otherwise
@@ -120,5 +123,11 @@ public class Server {
             return true;
         }
         return false;
+    }
+
+    synchronized public List<String> sendClubList() {
+        List<String> clubList = new ArrayList<>();
+        db.getClubList().forEach(e -> clubList.add(e.getName()));
+        return clubList;
     }
 }

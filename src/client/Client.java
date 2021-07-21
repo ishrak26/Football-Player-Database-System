@@ -1,5 +1,6 @@
 package client;
 
+import data.database.Club;
 import data.network.LoginInfo;
 import data.network.Message;
 import data.network.MessageHeader;
@@ -11,6 +12,8 @@ import javafx.stage.Stage;
 import util.NetworkUtil;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Client extends Application {
 
@@ -42,8 +45,11 @@ public class Client extends Application {
 
         ClubLoginWindowController controller = fxmlLoader.getController();
         controller.setClient(this);
+        controller.init();
 
         Scene scene = new Scene(root);
+
+        stage.setOnCloseRequest(e -> stage.close());
 
         stage.setTitle("Home");
         stage.setScene(scene);
@@ -80,6 +86,11 @@ public class Client extends Application {
 
         Scene scene = new Scene(root);
 
+        stage.setOnCloseRequest(e -> {
+            e.consume();
+            logoutClub(clubName);
+        });
+
         stage.setTitle(clubName);
         stage.setScene(scene);
         stage.setX(10);
@@ -115,6 +126,45 @@ public class Client extends Application {
         } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();
         }
+    }
+
+    public boolean sellPlayer(String playerName) {
+        try {
+            networkUtil.write(new Message(MessageHeader.SELL, playerName));
+            Object obj = networkUtil.read();
+            if (obj instanceof Boolean) {
+                return (Boolean) obj;
+            }
+        } catch (IOException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    public Club loadClubFromServer(String clubName) {
+        try {
+            networkUtil.write(new Message(MessageHeader.CLUB_INFO, clubName));
+            Object obj = networkUtil.read();
+            if (obj instanceof Club) {
+                return (Club) obj;
+            }
+        } catch (IOException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public List<?> loadClubList() {
+        try {
+            networkUtil.write(new Message(MessageHeader.CLUB_LIST, null));
+            Object obj = networkUtil.read();
+            if (obj instanceof List) {
+                return (List<?>) obj;
+            }
+        } catch (IOException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
     public NetworkUtil getNetworkUtil() {

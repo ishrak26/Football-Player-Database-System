@@ -20,6 +20,8 @@ public class PlayerListViewController {
     @FXML
     private GridPane gridPane;
 
+    private ClubHomeWindowController clubHomeWindowController;
+
     // for listing players under any condition
     public void loadPlayerCards(List<Player> playerList) {
         try {
@@ -34,6 +36,7 @@ public class PlayerListViewController {
 
                 PlayerCardController playerCardController = fxmlLoader.getController();
                 playerCardController.setData(player);
+                playerCardController.setClubHomeWindowController(this.clubHomeWindowController);
 
                 card.setOnMouseClicked(playerCardController::selectPlayer);
 
@@ -56,4 +59,11 @@ public class PlayerListViewController {
         }
     }
 
+    public ClubHomeWindowController getClubHomeWindowController() {
+        return clubHomeWindowController;
+    }
+
+    public void setClubHomeWindowController(ClubHomeWindowController clubHomeWindowController) {
+        this.clubHomeWindowController = clubHomeWindowController;
+    }
 }
