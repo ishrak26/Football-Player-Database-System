@@ -56,12 +56,34 @@ public class Client extends Application {
             Object obj = networkUtil.read();
             if (obj instanceof Boolean) {
                 Boolean b = (Boolean) obj;
-                if (b) System.out.println("login successful");
+                if (b) {
+                    System.out.println("login successful");
+                    showClubHomePage(username);
+                }
                 else System.out.println("login failure");
             }
         } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();
         }
+    }
+
+    private void showClubHomePage(String clubName) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setLocation(getClass().getResource("/views/clubHomeWindow.fxml"));
+
+        Parent root = fxmlLoader.load();
+
+        ClubHomeWindowController controller = fxmlLoader.getController();
+        controller.setClubName(clubName);
+        controller.init();
+
+        Scene scene = new Scene(root);
+
+        stage.setTitle(clubName);
+        stage.setScene(scene);
+        stage.setX(0);
+        stage.setY(0);
+        stage.show();
     }
 
     public void registerClub(String username, String password) {

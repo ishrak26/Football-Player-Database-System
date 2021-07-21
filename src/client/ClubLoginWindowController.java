@@ -2,13 +2,18 @@ package client;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
 
-public class ClubLoginWindowController {
+import java.net.URL;
+import java.util.ResourceBundle;
+
+public class ClubLoginWindowController implements Initializable {
 
     @FXML
-    private TextField usernameTextField;
+    private ChoiceBox<String> usernameChoiceBox;
 
     @FXML
     private TextField passwordTextField;
@@ -26,7 +31,7 @@ public class ClubLoginWindowController {
 
     @FXML
     void login(ActionEvent event) {
-        String username = usernameTextField.getText();
+        String username = usernameChoiceBox.getValue();
         String password = passwordTextField.getText();
         client.loginClub(username, password);
         reset(event);
@@ -34,7 +39,7 @@ public class ClubLoginWindowController {
 
     @FXML
     void register(ActionEvent event) {
-        String username = usernameTextField.getText();
+        String username = usernameChoiceBox.getValue();
         String password = passwordTextField.getText();
         client.registerClub(username, password);
         reset(event);
@@ -42,7 +47,7 @@ public class ClubLoginWindowController {
 
     @FXML
     void reset(ActionEvent event) {
-        usernameTextField.setText("");
+        usernameChoiceBox.setValue(null);
         passwordTextField.setText("");
     }
 
@@ -52,5 +57,16 @@ public class ClubLoginWindowController {
 
     public void setClient(Client client) {
         this.client = client;
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        initializeUsernameChoiceBox();
+    }
+
+    private void initializeUsernameChoiceBox() {
+        usernameChoiceBox.getItems().addAll(
+          "Manchester United", "Manchester City", "Arsenal"
+        );
     }
 }

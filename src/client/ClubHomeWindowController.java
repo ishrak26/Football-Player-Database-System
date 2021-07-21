@@ -278,14 +278,18 @@ public class ClubHomeWindowController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        clubName = "Manchester United";
+//        clubName = "Manchester United";
+
+
+    }
+
+    public void init() {
         loadClubData();
         initClubInfo();
         loadPlayerCards(club.getPlayers());
         makeFilterTree();
 
         makeMenu();
-
     }
 
     @FXML
@@ -346,7 +350,6 @@ public class ClubHomeWindowController implements Initializable {
 
     private void initClubInfo() {
         String clubName = this.clubName.replace(' ', '_');
-        String testLogoImgSource = "/images/logo/" + clubName + ".png";
         logoImgSource = this.club.getImgSource();
         clubLogoImage.setImage(new Image(getClass().getResourceAsStream(logoImgSource)));
         String[] words = clubName.split("_");
