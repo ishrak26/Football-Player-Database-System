@@ -162,6 +162,19 @@ public class Client extends Application {
         return null;
     }
 
+    public List<?> loadTransferList() {
+        try {
+            networkUtil.write(new Message(MessageHeader.TRANSFER_WINDOW, null));
+            Object obj = networkUtil.read();
+            if (obj instanceof List) {
+                return (List<?>) obj;
+            }
+        } catch (IOException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
     public NetworkUtil getNetworkUtil() {
         return networkUtil;
     }

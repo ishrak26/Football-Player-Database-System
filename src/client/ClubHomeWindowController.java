@@ -40,7 +40,7 @@ public class ClubHomeWindowController {
     private Label clubBudgetLabel;
 
     @FXML
-    private Button addNewPlayerButton;
+    private Button buyPlayerButton;
 
     @FXML
     private VBox bodyVBox;
@@ -117,28 +117,17 @@ public class ClubHomeWindowController {
     private boolean aBoolean = false;
 
     @FXML
-    void addNewPlayer(ActionEvent event) {
-//        if (listPlayerHBox.isVisible()) listPlayerHBox.setVisible(false);
-//        else listPlayerHBox.setVisible(true);
-        if (!aBoolean) {
-            bodyVBox.getChildren().clear();
-            aBoolean = true;
-        }
-        else {
-            bodyVBox.getChildren().addAll(bottomBarHBox, topBarHBox, listPlayerHBox);
-            aBoolean = false;
-        }
-    }
-
-    @FXML
     void buyPlayer(ActionEvent event) {
-//        listPlayerHBox.toFront();
-
-    }
-
-    @FXML
-    void logout(ActionEvent event) {
-
+        List<?> players = this.client.loadTransferList();
+        if (players != null) {
+            List<Player> playerList = new ArrayList<>();
+            players.forEach(e -> {
+                if (e instanceof Player && !((Player) e).getClub().equals(this.clubName)) {
+                    playerList.add((Player) e);
+                }
+            });
+            loadPlayerCards(playerList);
+        }
     }
 
     @FXML

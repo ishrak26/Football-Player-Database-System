@@ -42,7 +42,7 @@ public class Server {
         }
     }
 
-    public List<Player> getTransferPlayerList() {
+    synchronized public List<Player> getTransferPlayerList() {
         return transferPlayerList;
     }
 

@@ -33,6 +33,9 @@ public class PlayerCardController {
     @FXML
     private Button playerSellButton;
 
+    @FXML
+    private Label playerPriceLabel;
+
     private Player player;
     private ClubHomeWindowController clubHomeWindowController;
 
