@@ -58,6 +58,12 @@ public class ClubHomeWindowController {
     private Button resetPlayerNameButton;
 
     @FXML
+    private HBox refreshRateHBox;
+
+    @FXML
+    private ChoiceBox<String> refreshRateChoiceBox;
+
+    @FXML
     private MenuButton clubMenuButton;
 
     @FXML
@@ -113,6 +119,7 @@ public class ClubHomeWindowController {
     private String logoImgSource;
     private List<Player> playerListOnDisplay;
     private Client client;
+    private int refreshRate;
 
     private boolean aBoolean = false;
 
@@ -128,6 +135,9 @@ public class ClubHomeWindowController {
             });
             loadPlayerCards(playerList);
         }
+        refreshRateHBox.setVisible(true);
+
+        System.out.println(this.refreshRate);
     }
 
     @FXML
@@ -279,6 +289,32 @@ public class ClubHomeWindowController {
         makeFilterTree();
 
         makeMenu();
+
+        makeRefreshRateChoiceBox();
+    }
+
+    private void makeRefreshRateChoiceBox() {
+        refreshRateChoiceBox.getItems().addAll(
+                "5 seconds",
+                "10 seconds",
+                "15 seconds",
+                "30 seconds",
+                "1 minute",
+                "2 minutes",
+                "5 minutes"
+        );
+        refreshRateChoiceBox.getSelectionModel().selectedItemProperty().addListener(
+                (v, oldValue, newValue) -> this.refreshRate = toRefreshRate(newValue)
+        );
+        refreshRateChoiceBox.setValue("5 seconds");
+        this.refreshRate = 5;
+    }
+
+    private int toRefreshRate(String newValue) {
+        String[] choice = newValue.split(" ");
+        int rate = Integer.parseInt(choice[0]);
+        if (choice[1].charAt(0) == 'm') rate *= 60;
+        return rate;
     }
 
     private void makeMenu() {
