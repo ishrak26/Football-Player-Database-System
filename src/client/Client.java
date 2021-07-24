@@ -9,6 +9,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.stage.Stage;
 import util.NetworkUtil;
 
@@ -84,10 +85,14 @@ public class Client extends Application {
             if (obj instanceof Boolean) {
                 Boolean b = (Boolean) obj;
                 if (b) {
-                    System.out.println("login successful");
                     showClubHomePage(username);
+                } else {
+                    Alert a = new Alert(Alert.AlertType.ERROR);
+                    a.setTitle("Error");
+                    a.setHeaderText("Login window");
+                    a.setContentText("Login is unsuccessful");
+                    a.showAndWait();
                 }
-                else System.out.println("login failure");
             }
         } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();
@@ -101,8 +106,18 @@ public class Client extends Application {
             Object obj = networkUtil.read();
             if (obj instanceof Boolean) {
                 Boolean b = (Boolean) obj;
-//                if (b) System.out.println("registration successful");
-//                else System.out.println("registration failure");
+                Alert a = new Alert(Alert.AlertType.NONE);
+                a.setHeaderText("Registration window");
+                if (b) {
+                    a.setAlertType(Alert.AlertType.CONFIRMATION);
+                    a.setTitle("Confirmation");
+                    a.setContentText("Registration is successful");
+                } else {
+                    a.setAlertType(Alert.AlertType.ERROR);
+                    a.setTitle("Error");
+                    a.setContentText("Registration is unsuccessful");
+                }
+                a.showAndWait();
             }
         } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();
@@ -118,6 +133,12 @@ public class Client extends Application {
                 if (b) {
                     interruptRefreshThread();
                     showLoginPage();
+                } else {
+                    Alert a = new Alert(Alert.AlertType.ERROR);
+                    a.setTitle("Error");
+                    a.setHeaderText("Logout window");
+                    a.setContentText("Logout is unsuccessful");
+                    a.showAndWait();
                 }
             }
         } catch (IOException | ClassNotFoundException e) {
@@ -130,7 +151,15 @@ public class Client extends Application {
             networkUtil.write(new Message(MessageHeader.SELL, playerName));
             Object obj = networkUtil.read();
             if (obj instanceof Boolean) {
-                return (Boolean) obj;
+                Boolean b = (Boolean) obj;
+                if (!b) {
+                    Alert a = new Alert(Alert.AlertType.ERROR);
+                    a.setTitle("Error");
+                    a.setHeaderText(playerName);
+                    a.setContentText("Player could not be sold!");
+                    a.showAndWait();
+                }
+                return b;
             }
         } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();
@@ -143,7 +172,15 @@ public class Client extends Application {
             networkUtil.write(new BuyInfo(MessageHeader.BUY, playerName, clubName));
             Object obj = networkUtil.read();
             if (obj instanceof Boolean) {
-                return (Boolean) obj;
+                Boolean b = (Boolean) obj;
+                if (!b) {
+                    Alert a = new Alert(Alert.AlertType.ERROR);
+                    a.setTitle("Error");
+                    a.setHeaderText(playerName);
+                    a.setContentText("Player is unavailable!");
+                    a.showAndWait();
+                }
+                return b;
             }
         } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();

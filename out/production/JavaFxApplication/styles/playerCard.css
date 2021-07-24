@@ -1,0 +1,16 @@
+.root {
+    -fx-background-color: #008080;
+    -fx-text-fill: white;
+}
+
+#playerNameLabel {
+    -fx-font-family: Impact;
+    -fx-font-size: 15pt;
+    -fx-font-weight: bold;
+}
+
+#playerPositionLabel {
+    -fx-font-family: "Stencil Std";
+    -fx-font-size: 12pt;
+    -fx-font-weight: bold;
+}

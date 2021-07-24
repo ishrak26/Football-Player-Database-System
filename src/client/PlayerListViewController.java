@@ -38,8 +38,6 @@ public class PlayerListViewController {
                 playerCardController.setData(player);
                 playerCardController.setClubHomeWindowController(this.clubHomeWindowController);
 
-                //card.setOnMouseClicked(playerCardController::selectPlayer);
-
                 gridPane.add(card, col, row++);
                 //set grid width
                 gridPane.setMinWidth(Region.USE_COMPUTED_SIZE);
@@ -53,7 +51,10 @@ public class PlayerListViewController {
 
                 GridPane.setMargin(card, new Insets(10));
 
+//                card.toFront();
             }
+//            gridPane.toFront();
+//            scrollPane.toFront();
         } catch (IOException e) {
             e.printStackTrace();
         }
