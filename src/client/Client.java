@@ -19,12 +19,12 @@ public class Client extends Application {
 
     private Stage stage;
     private NetworkUtil networkUtil;
+    private TransferWindowRefreshThread refreshThread;
 
     private void connectToServer() throws IOException {
         String serverAddress = "127.0.0.1";
         int serverPort = 45045;
         networkUtil = new NetworkUtil(serverAddress, serverPort);
-        new ReadThreadClient(this);
     }
 
     @Override
@@ -176,7 +176,7 @@ public class Client extends Application {
         return null;
     }
 
-    public List<?> loadTransferList() {
+    synchronized public List<?> loadTransferList() {
         try {
             networkUtil.write(new Message(MessageHeader.TRANSFER_WINDOW, null));
             Object obj = networkUtil.read();
@@ -187,6 +187,14 @@ public class Client extends Application {
             e.printStackTrace();
         }
         return null;
+    }
+
+    synchronized public void startRefreshThread(ClubHomeWindowController clubHomeWindowController) {
+        refreshThread = new TransferWindowRefreshThread(clubHomeWindowController);
+    }
+
+    synchronized public void interruptRefreshThread() {
+        if (refreshThread != null) refreshThread.getThread().interrupt();
     }
 
     public NetworkUtil getNetworkUtil() {

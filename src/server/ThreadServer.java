@@ -41,15 +41,12 @@ public class ThreadServer implements Runnable {
                         networkUtil.write(server.sendClubList());
                     }
                 } else if (obj instanceof LoginInfo) {
-                    System.out.println("login info object read");
                     LoginInfo loginInfo = (LoginInfo) obj;
                     if (loginInfo.getMessageHeader() == MessageHeader.REGISTER) {
                         networkUtil.write(server.registerClub(
                                 loginInfo.getUsername(), loginInfo.getPassword(), networkUtil));
-                        System.out.println("reg info written");
                     } else if (loginInfo.getMessageHeader() == MessageHeader.LOGIN) {
                         networkUtil.write(server.loginClub(loginInfo.getUsername(), loginInfo.getPassword()));
-                        System.out.println("login info written");
                     } else if (loginInfo.getMessageHeader() == MessageHeader.CHANGE_PASS) {
                         networkUtil.write(server.changePassword(loginInfo.getUsername(), loginInfo.getPassword(),
                                 loginInfo.getNewPassword()));
@@ -57,22 +54,19 @@ public class ThreadServer implements Runnable {
                 } else if (obj instanceof BuyInfo) {
                     BuyInfo buyInfo = (BuyInfo) obj;
                     if (buyInfo.getMessageHeader() == MessageHeader.BUY) {
+                        System.out.println("buy info object received");
                         networkUtil.write(server.sellPlayer(buyInfo.getPlayerName(), buyInfo.getClubName()));
                     }
                 }
             }
         }
         catch (IOException | ClassNotFoundException e) {
-//                e.printStackTrace();
-            System.out.println("this is exception while reading");
-            System.out.println(e);
+                e.printStackTrace();
         } finally {
             try {
                 networkUtil.closeConnection();
-                System.out.println("disconnected successfully");
             } catch (IOException e) {
-//                    e.printStackTrace();
-                System.out.println("this is exception while disconnecting");
+                    e.printStackTrace();
             }
         }
     }

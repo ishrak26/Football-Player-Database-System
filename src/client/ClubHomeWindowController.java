@@ -5,6 +5,7 @@ import data.database.Country;
 import data.database.Database;
 import data.database.Player;
 import home.FileOperations;
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -119,12 +120,26 @@ public class ClubHomeWindowController {
     private String logoImgSource;
     private List<Player> playerListOnDisplay;
     private Client client;
-    private int refreshRate;
+    volatile private int refreshRate;
 
     private boolean aBoolean = false;
 
     @FXML
     void showTransferWindow(ActionEvent event) {
+        if (buyPlayerButton.getText().equals("Buy Player")) {
+            client.startRefreshThread(this);
+            refreshRateHBox.setVisible(true);
+            buyPlayerButton.setText("Home");
+        } else {
+            client.interruptRefreshThread();
+            refreshRateHBox.setVisible(false);
+            buyPlayerButton.setText("Buy Player");
+            loadPlayerCards(this.club.getPlayers());
+        }
+
+    }
+
+    void loadTransferWindow() {
         List<?> players = this.client.loadTransferList();
         if (players != null) {
             List<Player> playerList = new ArrayList<>();
@@ -135,9 +150,7 @@ public class ClubHomeWindowController {
             });
             loadPlayerCards(playerList);
         }
-        refreshRateHBox.setVisible(true);
 
-        System.out.println(this.refreshRate);
     }
 
     @FXML
@@ -304,13 +317,19 @@ public class ClubHomeWindowController {
                 "5 minutes"
         );
         refreshRateChoiceBox.getSelectionModel().selectedItemProperty().addListener(
-                (v, oldValue, newValue) -> this.refreshRate = toRefreshRate(newValue)
+                (v, oldValue, newValue) -> {
+                    if (oldValue != null && !oldValue.equals(newValue)) {
+                        this.refreshRate = toRefreshRate(newValue);
+                        client.interruptRefreshThread();
+                        client.startRefreshThread(this);
+                    }
+                }
         );
         refreshRateChoiceBox.setValue("5 seconds");
         this.refreshRate = 5;
     }
 
-    private int toRefreshRate(String newValue) {
+    int toRefreshRate(String newValue) {
         String[] choice = newValue.split(" ");
         int rate = Integer.parseInt(choice[0]);
         if (choice[1].charAt(0) == 'm') rate *= 60;
@@ -433,6 +452,7 @@ public class ClubHomeWindowController {
 
     @FXML
     void logoutClub(ActionEvent event) {
+        client.interruptRefreshThread();
         client.logoutClub(this.clubName);
     }
 
@@ -455,5 +475,9 @@ public class ClubHomeWindowController {
             makeFilterTree();
             loadPlayerCards(this.playerListOnDisplay);
         }
+    }
+
+    public int getRefreshRate() {
+        return refreshRate;
     }
 }
