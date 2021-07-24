@@ -101,8 +101,8 @@ public class Client extends Application {
             Object obj = networkUtil.read();
             if (obj instanceof Boolean) {
                 Boolean b = (Boolean) obj;
-                if (b) System.out.println("registration successful");
-                else System.out.println("registration failure");
+//                if (b) System.out.println("registration successful");
+//                else System.out.println("registration failure");
             }
         } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();
@@ -116,6 +116,7 @@ public class Client extends Application {
             if (obj instanceof Boolean) {
                 Boolean b = (Boolean) obj;
                 if (b) {
+                    interruptRefreshThread();
                     showLoginPage();
                 }
             }

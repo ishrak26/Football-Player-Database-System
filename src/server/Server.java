@@ -62,10 +62,12 @@ public class Server {
         boolean b = false;
         try {
             Player player = db.searchPlayerByName(playerName);
-            transferPlayerList.remove(player);
-            player.setInTransferList(false);
-            player.setClub(newClubName);
-            b = true;
+            if (player.isInTransferList()) {
+                transferPlayerList.remove(player);
+                player.setInTransferList(false);
+                player.setClub(newClubName);
+                b = true;
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }

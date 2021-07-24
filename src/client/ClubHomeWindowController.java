@@ -452,7 +452,6 @@ public class ClubHomeWindowController {
 
     @FXML
     void logoutClub(ActionEvent event) {
-        client.interruptRefreshThread();
         client.logoutClub(this.clubName);
     }
 
