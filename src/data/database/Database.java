@@ -243,14 +243,9 @@ public class Database {
         return players;
     }
 
-    public void removePlayerFromClub(String playerName) {
-        for (Player player:
-                this.playerList) {
-            if (player.getName().equalsIgnoreCase(playerName)) {
-                Club c = searchClub(player.getClub());
-                c.removePlayer(playerName);
-                return;
-            }
-        }
+    public void removePlayerFromClub(String playerName) throws Exception {
+        Player player = searchPlayerByName(playerName);
+        Club club = searchClub(player.getClub());
+        club.removePlayer(playerName);
     }
 }

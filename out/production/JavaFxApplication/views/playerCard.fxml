@@ -54,6 +54,11 @@
                         <Insets left="15.0" />
                      </HBox.margin>
                   </Button>
+                  <Label fx:id="playerPriceLabel" text="Price: 150,000 USD">
+                     <HBox.margin>
+                        <Insets left="15.0" />
+                     </HBox.margin>
+                  </Label>
                </children>
             </HBox>
          </children>

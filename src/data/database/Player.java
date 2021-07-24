@@ -15,6 +15,7 @@ public class Player implements Serializable {
     private double salary;
     private double price;
     private String imgSource;
+    private boolean isInTransferList;
 
     public Player() {
         // will delete later
@@ -105,6 +106,14 @@ public class Player implements Serializable {
 
     public void setPrice(double price) {
         this.price = price;
+    }
+
+    public boolean isInTransferList() {
+        return isInTransferList;
+    }
+
+    public void setInTransferList(boolean inTransferList) {
+        isInTransferList = inTransferList;
     }
 
     @Override

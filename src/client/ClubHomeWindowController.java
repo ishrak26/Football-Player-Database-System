@@ -117,7 +117,7 @@ public class ClubHomeWindowController {
     private boolean aBoolean = false;
 
     @FXML
-    void buyPlayer(ActionEvent event) {
+    void showTransferWindow(ActionEvent event) {
         List<?> players = this.client.loadTransferList();
         if (players != null) {
             List<Player> playerList = new ArrayList<>();
@@ -406,6 +406,18 @@ public class ClubHomeWindowController {
             this.club.removePlayer(playerName);
             makeFilterTree();
             loadPlayerCards(this.club.getPlayers());
+        }
+    }
+
+    public void buyPlayer(Player player) {
+        boolean b = client.buyPlayer(player.getName(), this.clubName);
+        if (b) {
+            this.playerListOnDisplay.remove(player);
+            player.setInTransferList(false);
+            player.setClub(this.clubName);
+            this.club.addPlayer(player);
+            makeFilterTree();
+            loadPlayerCards(this.playerListOnDisplay);
         }
     }
 }

@@ -54,6 +54,11 @@ public class ThreadServer implements Runnable {
                         networkUtil.write(server.changePassword(loginInfo.getUsername(), loginInfo.getPassword(),
                                 loginInfo.getNewPassword()));
                     }
+                } else if (obj instanceof BuyInfo) {
+                    BuyInfo buyInfo = (BuyInfo) obj;
+                    if (buyInfo.getMessageHeader() == MessageHeader.BUY) {
+                        networkUtil.write(server.sellPlayer(buyInfo.getPlayerName(), buyInfo.getClubName()));
+                    }
                 }
             }
         }

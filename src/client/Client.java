@@ -1,6 +1,7 @@
 package client;
 
 import data.database.Club;
+import data.network.BuyInfo;
 import data.network.LoginInfo;
 import data.network.Message;
 import data.network.MessageHeader;
@@ -126,6 +127,19 @@ public class Client extends Application {
     public boolean sellPlayer(String playerName) {
         try {
             networkUtil.write(new Message(MessageHeader.SELL, playerName));
+            Object obj = networkUtil.read();
+            if (obj instanceof Boolean) {
+                return (Boolean) obj;
+            }
+        } catch (IOException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    public boolean buyPlayer(String playerName, String clubName) {
+        try {
+            networkUtil.write(new BuyInfo(MessageHeader.BUY, playerName, clubName));
             Object obj = networkUtil.read();
             if (obj instanceof Boolean) {
                 return (Boolean) obj;

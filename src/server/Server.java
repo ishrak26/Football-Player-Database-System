@@ -58,17 +58,34 @@ public class Server {
         new ThreadServer(networkUtil, this);
     }
 
-    synchronized public void sellPlayer(Player player, String newClubName) {
-        transferPlayerList.remove(player);
-        player.setClub(newClubName);
+    synchronized public boolean sellPlayer(String playerName, String newClubName) {
+        boolean b = false;
+        try {
+            Player player = db.searchPlayerByName(playerName);
+            transferPlayerList.remove(player);
+            player.setInTransferList(false);
+            player.setClub(newClubName);
+            b = true;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return b;
     }
 
     synchronized public boolean addToTransferWindow(String playerName) {
-        // player will not be null
-        db.removePlayerFromClub(playerName);
-        transferPlayerList.add(db.searchPlayerByName(playerName));
-        System.out.println(transferPlayerList);
-        return true;
+        boolean b = false;
+        try {
+            // player should not be null
+            db.removePlayerFromClub(playerName);
+            Player player = db.searchPlayerByName(playerName);
+            player.setInTransferList(true);
+            transferPlayerList.add(player);
+            System.out.println(transferPlayerList);
+            b = true;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return b;
     }
 
     // returns true if registration is successful, false otherwise

@@ -41,7 +41,13 @@ public class PlayerCardController {
 
     @FXML
     void sellPlayer(ActionEvent event) {
-        clubHomeWindowController.sellPlayer(player.getName());
+        if (player.isInTransferList()) {
+            // buy
+            clubHomeWindowController.buyPlayer(player);
+        } else {
+            // sell
+            clubHomeWindowController.sellPlayer(player.getName());
+        }
     }
 
     @FXML
@@ -90,6 +96,14 @@ public class PlayerCardController {
         playerNameLabel.setText(player.getName());
         playerPositionLabel.setText(player.getPosition());
         playerImage.setImage(new Image(getClass().getResourceAsStream(player.getImgSource())));
+
+        if (player.isInTransferList()) {
+            playerSellButton.setText("Buy");
+            playerPriceLabel.setVisible(true);
+        } else {
+            playerSellButton.setText("Sell");
+            playerPriceLabel.setVisible(false);
+        }
     }
 
     public ClubHomeWindowController getClubHomeWindowController() {
