@@ -6,6 +6,7 @@ import data.network.*;
 import util.NetworkUtil;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.stream.Collectors;
 
 public class ThreadServer implements Runnable {
@@ -31,7 +32,12 @@ public class ThreadServer implements Runnable {
                         String clubName = msg.getMessage();
                         networkUtil.write(server.db.searchClub(clubName));
                     } else if (msg.getMessageHeader() == MessageHeader.TRANSFER_WINDOW) {
-                        networkUtil.write(server.getTransferPlayerList());
+                        System.out.println("Written from server:");
+                        List<Player> list = server.getTransferPlayerList();
+//                        System.out.println(list);
+                        Object ob = list;
+                        System.out.println(ob);
+                        networkUtil.write(ob);
                     } else if (msg.getMessageHeader() == MessageHeader.LOGOUT) {
                         networkUtil.write(server.logoutClub(msg.getMessage()));
                     } else if (msg.getMessageHeader() == MessageHeader.CLUB_LIST) {

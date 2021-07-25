@@ -49,7 +49,8 @@ public class Database {
 
     // returns null if not found
     public Player searchPlayerByName(String name) {
-        for (Player p : playerList) {
+        for (int i = 0; i < this.playerList.size(); i++) {
+            Player p = this.playerList.get(i);
             if (p.getName().equalsIgnoreCase(name)) return p;
         }
         return null;
@@ -124,8 +125,8 @@ public class Database {
     }
 
     public void addPlayer(List<Player> playerList) {
-        for (Player player:
-             playerList) {
+        for (int i = 0; i < playerList.size(); i++) {
+            Player player = playerList.get(i);
             addPlayer(player);
         }
     }
@@ -156,8 +157,8 @@ public class Database {
 
     private void updateClubList(Player player) {
         String club = player.getClub();
-        for (Club c: clubList
-        ) {
+        for (int i = 0; i < this.clubList.size(); i++) {
+            Club c = this.clubList.get(i);
             if (c.getName().equalsIgnoreCase(club)) {
                 c.addPlayer(player);
                 return;
@@ -170,8 +171,8 @@ public class Database {
 
     // returns null if no club with the given name is found
     public Club searchClub(String clubName) {
-        for (Club c: clubList
-             ) {
+        for (int i = 0; i < this.clubList.size(); i++) {
+            Club c = this.clubList.get(i);
             if (c.getName().equalsIgnoreCase(clubName)) return c;
         }
         return null;

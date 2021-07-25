@@ -141,13 +141,14 @@ public class ClubHomeWindowController {
 
     void loadTransferWindow() {
         List<?> players = this.client.loadTransferList();
+//        System.out.println(players);
         if (players != null) {
             List<Player> playerList = new ArrayList<>();
-            players.forEach(e -> {
+            for (Object e : players) {
                 if (e instanceof Player && !((Player) e).getClub().equals(this.clubName)) {
                     playerList.add((Player) e);
                 }
-            });
+            }
             loadPlayerCards(playerList);
         }
 

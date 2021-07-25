@@ -15,10 +15,10 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 public class Server {
-    Database db;
+    volatile Database db;
     private FileOperations fileOperations;
-    private List<Player> transferPlayerList;
-    private HashMap<String, ClientInfo> clientMap;
+    volatile private List<Player> transferPlayerList;
+    volatile private HashMap<String, ClientInfo> clientMap;
 
     public static void main(String[] args) {
         int port = 45045;
@@ -67,6 +67,9 @@ public class Server {
                 player.setInTransferList(false);
                 player.setClub(newClubName);
                 b = true;
+
+                Player player1 = db.searchPlayerByName(playerName);
+                System.out.println(player1.getName() + " " + player1.getClub());
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -83,7 +86,7 @@ public class Server {
             player.setPrice(playerPrice);
             player.setInTransferList(true);
             transferPlayerList.add(player);
-            System.out.println(playerName + " " + player.getPrice());
+//            System.out.println(playerName + " " + player.getPrice());
 //            System.out.println(transferPlayerList);
             b = true;
         } catch (Exception e) {

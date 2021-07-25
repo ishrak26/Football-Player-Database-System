@@ -31,6 +31,8 @@ public class NetworkUtil {
 
     public void write(Object obj) throws IOException {
         objectOutputStream.writeUnshared(obj);
+        objectOutputStream.reset();
+        objectOutputStream.flush();
     }
 
     public void closeConnection() throws IOException {

@@ -91,7 +91,8 @@ public class Club implements Serializable {
 
         // find players with maximum salary
         double eps = 0.000001; // precision range
-        for (Player player : players) {
+        for (int i = 0; i < this.players.size(); i++) {
+            Player player = this.players.get(i);
             if (Math.abs(salary - player.getSalary()) < eps) {
                 playerList.add(player);
             }
@@ -111,7 +112,8 @@ public class Club implements Serializable {
         }
 
         // find players with maximum age
-        for (Player player : players) {
+        for (int i = 0; i < this.players.size(); i++) {
+            Player player = this.players.get(i);
             if (player.getAge() == age) {
                 playerList.add(player);
             }
@@ -132,7 +134,8 @@ public class Club implements Serializable {
 
         // find players with maximum height
         double eps = 0.000001;
-        for (Player player : players) {
+        for (int i = 0; i < this.players.size(); i++) {
+            Player player = this.players.get(i);
             if (Math.abs(height - player.getHeight()) < eps) {
                 playerList.add(player);
             }
