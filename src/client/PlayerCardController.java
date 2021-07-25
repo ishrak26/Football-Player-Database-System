@@ -46,8 +46,37 @@ public class PlayerCardController {
             clubHomeWindowController.buyPlayer(player);
         } else {
             // sell
-            clubHomeWindowController.sellPlayer(player.getName());
+            boolean b = showPlayerSaleConfirmationWindow();
+            if (b) clubHomeWindowController.sellPlayer(player.getName());
         }
+    }
+
+    private boolean showPlayerSaleConfirmationWindow() {
+        boolean b = false;
+        try {
+            Stage window = new Stage();
+            window.initModality(Modality.APPLICATION_MODAL);
+            window.setTitle("Sale Confirmation");
+
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            fxmlLoader.setLocation(getClass().getResource("/views/saleConfirmationWindow.fxml"));
+
+            Parent root = fxmlLoader.load();
+
+            SaleConfirmationWindowController controller = fxmlLoader.getController();
+            controller.setPlayer(this.player);
+            controller.setStage(window);
+
+            Scene scene = new Scene(root);
+            window.setScene(scene);
+            window.showAndWait();
+
+            b = controller.isSaleConfirm();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return b;
     }
 
     @FXML
@@ -95,6 +124,7 @@ public class PlayerCardController {
         this.player = player;
         playerNameLabel.setText(player.getName());
         playerPositionLabel.setText(player.getPosition());
+        playerPriceLabel.setText("Price: " + String.format("%,.2f", player.getPrice()) + " USD");
         playerImage.setImage(new Image(getClass().getResourceAsStream(player.getImgSource())));
 
         if (player.isInTransferList()) {
