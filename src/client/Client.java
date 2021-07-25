@@ -1,10 +1,7 @@
 package client;
 
 import data.database.Club;
-import data.network.BuyInfo;
-import data.network.LoginInfo;
-import data.network.Message;
-import data.network.MessageHeader;
+import data.network.*;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -146,9 +143,10 @@ public class Client extends Application {
         }
     }
 
-    public boolean sellPlayer(String playerName) {
+    public boolean sellPlayer(String playerName, double playerPrice) {
         try {
-            networkUtil.write(new Message(MessageHeader.SELL, playerName));
+//            networkUtil.write(new Message(MessageHeader.SELL, playerName));
+            networkUtil.write(new SaleInfo(MessageHeader.SELL, playerName, playerPrice));
             Object obj = networkUtil.read();
             if (obj instanceof Boolean) {
                 Boolean b = (Boolean) obj;

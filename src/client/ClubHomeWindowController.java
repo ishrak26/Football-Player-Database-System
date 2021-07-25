@@ -455,8 +455,8 @@ public class ClubHomeWindowController {
         client.logoutClub(this.clubName);
     }
 
-    public void sellPlayer(String playerName) {
-        boolean b = client.sellPlayer(playerName);
+    public void sellPlayer(String playerName, double playerPrice) {
+        boolean b = client.sellPlayer(playerName, playerPrice);
         if (b) {
             this.club.removePlayer(playerName);
             makeFilterTree();

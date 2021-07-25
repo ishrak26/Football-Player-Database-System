@@ -27,10 +27,7 @@ public class ThreadServer implements Runnable {
                 Object obj = networkUtil.read();
                 if (obj instanceof Message) {
                     Message msg = (Message) obj;
-                    if (msg.getMessageHeader() == MessageHeader.SELL) {
-                        String playerName = msg.getMessage();
-                        networkUtil.write(server.addToTransferWindow(playerName));
-                    } else if (msg.getMessageHeader() == MessageHeader.CLUB_INFO) {
+                    if (msg.getMessageHeader() == MessageHeader.CLUB_INFO) {
                         String clubName = msg.getMessage();
                         networkUtil.write(server.db.searchClub(clubName));
                     } else if (msg.getMessageHeader() == MessageHeader.TRANSFER_WINDOW) {
@@ -54,17 +51,24 @@ public class ThreadServer implements Runnable {
                 } else if (obj instanceof BuyInfo) {
                     BuyInfo buyInfo = (BuyInfo) obj;
                     if (buyInfo.getMessageHeader() == MessageHeader.BUY) {
-                        System.out.println("buy info object received");
+//                        System.out.println("buy info object received");
                         networkUtil.write(server.sellPlayer(buyInfo.getPlayerName(), buyInfo.getClubName()));
+                    }
+                } else if (obj instanceof SaleInfo) {
+                    SaleInfo saleInfo = (SaleInfo) obj;
+                    if (saleInfo.getMessageHeader() == MessageHeader.SELL) {
+                        networkUtil.write(server.addToTransferWindow(saleInfo.getPlayerName(), saleInfo.getPlayerPrice()));
                     }
                 }
             }
         }
         catch (IOException | ClassNotFoundException e) {
-                e.printStackTrace();
+//                e.printStackTrace();
+            System.out.println(e);
         } finally {
             try {
                 networkUtil.closeConnection();
+                System.out.println("Disconnected successfully");
             } catch (IOException e) {
                     e.printStackTrace();
             }

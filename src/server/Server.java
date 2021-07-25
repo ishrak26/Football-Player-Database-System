@@ -74,15 +74,17 @@ public class Server {
         return b;
     }
 
-    synchronized public boolean addToTransferWindow(String playerName) {
+    synchronized public boolean addToTransferWindow(String playerName, double playerPrice) {
         boolean b = false;
         try {
             // player should not be null
             db.removePlayerFromClub(playerName);
             Player player = db.searchPlayerByName(playerName);
+            player.setPrice(playerPrice);
             player.setInTransferList(true);
             transferPlayerList.add(player);
-            System.out.println(transferPlayerList);
+            System.out.println(playerName + " " + player.getPrice());
+//            System.out.println(transferPlayerList);
             b = true;
         } catch (Exception e) {
             e.printStackTrace();
