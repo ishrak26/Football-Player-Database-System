@@ -5,15 +5,29 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.ClubLoginWindowController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="448.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.ClubLoginWindowController">
    <children>
-      <Label layoutX="160.0" layoutY="135.0" text="username" />
-      <Label layoutX="160.0" layoutY="183.0" text="password" />
-      <Button fx:id="loginButton" layoutX="218.0" layoutY="268.0" mnemonicParsing="false" onAction="#login" text="Login" />
-      <Button fx:id="resetButton" layoutX="300.0" layoutY="268.0" mnemonicParsing="false" onAction="#reset" text="Reset" />
-      <Button fx:id="registerButton" layoutX="367.0" layoutY="268.0" mnemonicParsing="false" onAction="#register" text="Register" />
-      <PasswordField fx:id="passwordTextField" layoutX="244.0" layoutY="179.0" />
-      <ChoiceBox fx:id="usernameChoiceBox" layoutX="244.0" layoutY="131.0" prefWidth="150.0" />
+      <Label layoutX="151.0" layoutY="78.0" text="FOOTBALL PLAYER">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Label>
+      <Label layoutX="146.0" layoutY="139.0" text="DATABASE SYSTEM">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Label>
+      <PasswordField fx:id="passwordTextField" alignment="CENTER" layoutX="227.0" layoutY="273.0" promptText="Password" />
+      <Button fx:id="loginButton" layoutX="227.0" layoutY="328.0" mnemonicParsing="false" onAction="#login" text="Sign in" />
+      <Button fx:id="resetButton" layoutX="324.0" layoutY="328.0" mnemonicParsing="false" onAction="#reset" text="Reset" />
+      <Label layoutX="205.0" layoutY="379.0" prefHeight="30.0" prefWidth="119.0" text="Not registered yet?">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Button fx:id="registerButton" layoutX="336.0" layoutY="379.0" mnemonicParsing="false" onAction="#register" text="Sign up" />
+      <ChoiceBox fx:id="usernameChoiceBox" layoutX="225.0" layoutY="231.0" prefWidth="150.0" />
    </children>
 </AnchorPane>

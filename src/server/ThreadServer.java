@@ -32,12 +32,12 @@ public class ThreadServer implements Runnable {
                         String clubName = msg.getMessage();
                         networkUtil.write(server.db.searchClub(clubName));
                     } else if (msg.getMessageHeader() == MessageHeader.TRANSFER_WINDOW) {
-                        System.out.println("Written from server:");
-                        List<Player> list = server.getTransferPlayerList();
-//                        System.out.println(list);
-                        Object ob = list;
-                        System.out.println(ob);
-                        networkUtil.write(ob);
+//                        System.out.println("Written from server:");
+//                        List<Player> list = server.getTransferPlayerList();
+////                        System.out.println(list);
+//                        Object ob = list;
+//                        System.out.println(ob);
+                        networkUtil.write(server.getTransferPlayerList());
                     } else if (msg.getMessageHeader() == MessageHeader.LOGOUT) {
                         networkUtil.write(server.logoutClub(msg.getMessage()));
                     } else if (msg.getMessageHeader() == MessageHeader.CLUB_LIST) {

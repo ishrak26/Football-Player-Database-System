@@ -39,9 +39,16 @@ public class PlayerListViewController {
                 playerCardController.setClubHomeWindowController(this.clubHomeWindowController);
 
                 gridPane.add(card, col, row++);
+
                 //set grid width
                 gridPane.setMinWidth(Region.USE_COMPUTED_SIZE);
                 gridPane.setPrefWidth(Region.USE_COMPUTED_SIZE);
+                gridPane.setMaxWidth(Region.USE_PREF_SIZE);
+//                double width = 464;
+//                double width = scrollPane.getWidth();
+                double width = 464;
+                gridPane.setMinWidth(width);
+                gridPane.setPrefWidth(width);
                 gridPane.setMaxWidth(Region.USE_PREF_SIZE);
 
                 //set grid height

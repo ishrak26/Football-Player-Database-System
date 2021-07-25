@@ -7,14 +7,13 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-
 <VBox prefHeight="445.0" prefWidth="483.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.PlayerListViewController">
    <children>
-      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="459.0" VBox.vgrow="ALWAYS">
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="483.0" VBox.vgrow="ALWAYS">
          <children>
-            <ScrollPane fx:id="scrollPane" prefHeight="445.0" prefWidth="419.0" styleClass="transparent" stylesheets="@../styles/clubHomeWindow.css">
+            <ScrollPane fx:id="scrollPane" prefHeight="445.0" prefWidth="470.0" styleClass="transparent" stylesheets="@../styles/clubHomeWindow.css" HBox.hgrow="ALWAYS">
                <content>
-                  <GridPane fx:id="gridPane" prefHeight="6.0" prefWidth="0.0">
+                  <GridPane fx:id="gridPane" prefHeight="6.0" prefWidth="465.0">
                      <columnConstraints>
                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                      </columnConstraints>

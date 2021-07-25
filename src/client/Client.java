@@ -216,8 +216,8 @@ public class Client extends Application {
         try {
             networkUtil.write(new Message(MessageHeader.TRANSFER_WINDOW, null));
             Object obj = networkUtil.read();
-            System.out.println("Read from server:");
-            System.out.println(obj);
+//            System.out.println("Read from server:");
+//            System.out.println(obj);
             if (obj instanceof List) {
                 return (List<?>) obj;
             }
