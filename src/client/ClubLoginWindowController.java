@@ -3,10 +3,12 @@ package client;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -34,16 +36,34 @@ public class ClubLoginWindowController {
     void login(ActionEvent event) {
         String username = usernameChoiceBox.getValue();
         String password = passwordTextField.getText();
-        client.loginClub(username, password);
-        reset(event);
+        if (username == null || password.isBlank()) {
+            showAlert("Login");
+        } else {
+            client.loginClub(username, password);
+            reset(event);
+        }
+    }
+
+    private void showAlert(String header) {
+        Alert a = new Alert(Alert.AlertType.ERROR);
+        a.setTitle("Error");
+        a.setHeaderText(header + " not successful");
+        a.setContentText("Username or password field cannot be empty.");
+        a.showAndWait();
     }
 
     @FXML
     void register(ActionEvent event) {
         String username = usernameChoiceBox.getValue();
-        String password = passwordTextField.getText();
-        client.registerClub(username, password);
-        reset(event);
+        if (username == null) {
+            showAlert("Registration request");
+        } else {
+            try {
+                client.showRegWindow(username);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     @FXML

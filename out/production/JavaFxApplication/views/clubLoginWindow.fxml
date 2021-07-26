@@ -19,7 +19,7 @@
             <Font size="36.0" />
          </font>
       </Label>
-      <PasswordField fx:id="passwordTextField" alignment="CENTER" layoutX="227.0" layoutY="273.0" promptText="Password" />
+      <PasswordField fx:id="passwordTextField" alignment="CENTER" layoutX="262.0" layoutY="272.0" promptText="Password" />
       <Button fx:id="loginButton" layoutX="227.0" layoutY="328.0" mnemonicParsing="false" onAction="#login" text="Sign in" />
       <Button fx:id="resetButton" layoutX="324.0" layoutY="328.0" mnemonicParsing="false" onAction="#reset" text="Reset" />
       <Label layoutX="205.0" layoutY="379.0" prefHeight="30.0" prefWidth="119.0" text="Not registered yet?">
@@ -28,6 +28,16 @@
          </font>
       </Label>
       <Button fx:id="registerButton" layoutX="336.0" layoutY="379.0" mnemonicParsing="false" onAction="#register" text="Sign up" />
-      <ChoiceBox fx:id="usernameChoiceBox" layoutX="225.0" layoutY="231.0" prefWidth="150.0" />
+      <ChoiceBox fx:id="usernameChoiceBox" layoutX="261.0" layoutY="231.0" prefWidth="150.0" />
+      <Label layoutX="185.0" layoutY="234.0" text="Username">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="185.0" layoutY="275.0" text="Password">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

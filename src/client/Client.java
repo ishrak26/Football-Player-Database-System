@@ -46,6 +46,8 @@ public class Client extends Application {
         stage.setOnCloseRequest(e -> stage.close());
 
         stage.setTitle("Home");
+        stage.setX(375);
+        stage.setY(80);
         stage.setScene(scene);
         stage.show();
     }
@@ -71,6 +73,33 @@ public class Client extends Application {
         stage.setScene(scene);
         stage.setX(10);
         stage.setY(10);
+        stage.show();
+    }
+
+    public void showRegWindow(String username) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setLocation(getClass().getResource("/views/clubRegWindow.fxml"));
+
+        Parent root = fxmlLoader.load();
+
+        ClubRegWindowController controller = fxmlLoader.getController();
+        controller.setClient(this);
+        controller.setUserNameLabelText(username);
+
+        Scene scene = new Scene(root);
+
+        stage.setOnCloseRequest(e -> {
+            try {
+                showLoginPage();
+            } catch (IOException ioException) {
+                ioException.printStackTrace();
+            }
+        });
+
+        stage.setTitle("Registration");
+        stage.setX(375);
+        stage.setY(80);
+        stage.setScene(scene);
         stage.show();
     }
 
@@ -115,6 +144,7 @@ public class Client extends Application {
                     a.setContentText("Registration is unsuccessful");
                 }
                 a.showAndWait();
+                showLoginPage();
             }
         } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();
