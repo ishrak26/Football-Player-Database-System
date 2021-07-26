@@ -140,6 +140,7 @@
                                                 <MenuItem mnemonicParsing="false" onAction="#listMaxAgePlayers" text="Maximum Age" />
                                               <MenuItem mnemonicParsing="false" onAction="#listMaxHeightPlayers" text="Maximum Height" />
                                               <MenuItem mnemonicParsing="false" onAction="#listMaxSalaryPlayers" text="Maximum Salary" />
+                                                <MenuItem mnemonicParsing="false" onAction="#showTotalYearlySalary" text="Total Yearly Salary" />
                                             </items>
                                           </MenuButton>
                                        </content></SeparatorMenuItem>

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
@@ -26,15 +27,18 @@
                 <Font size="14.0" />
             </font>
         </Label>
-        <Label layoutX="161.0" layoutY="276.0" text="Password">
+        <Label layoutX="162.0" layoutY="276.0" text="Password">
             <font>
                 <Font size="14.0" />
             </font>
         </Label>
-      <Label fx:id="userNameLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="310.0" layoutY="234.0" text="Manchester United" textAlignment="CENTER">
+      <Label fx:id="userNameLabel" layoutX="294.0" layoutY="234.0" text="Manchester United">
          <font>
             <Font size="14.0" />
          </font>
+         <padding>
+            <Insets left="10.0" />
+         </padding>
       </Label>
       <Label layoutX="161.0" layoutY="313.0" text="Retype Password">
          <font>

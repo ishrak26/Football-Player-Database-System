@@ -443,6 +443,15 @@ public class ClubHomeWindowController {
         loadPlayerCards(club.getMaxSalaryPlayers());
     }
 
+    @FXML
+    void showTotalYearlySalary(ActionEvent event) {
+        Alert a = new Alert(Alert.AlertType.INFORMATION);
+        a.setTitle("Total Yearly Salary");
+        a.setHeaderText(this.clubName);
+        a.setContentText("Total yearly salary is " + String.format("%,.2f", this.club.getTotalYearlySalary()) + " USD");
+        a.showAndWait();
+    }
+
     public String getClubName() {
         return clubName;
     }
