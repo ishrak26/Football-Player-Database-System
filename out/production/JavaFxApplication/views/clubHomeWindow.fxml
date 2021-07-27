@@ -157,7 +157,7 @@
                   </HBox>
                   <HBox fx:id="listPlayerHBox" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #001a33;" VBox.vgrow="ALWAYS">
                      <children>
-                        <VBox fx:id="playerListVBox" prefHeight="445.0" prefWidth="483.0" style="-fx-background-color: #001a33;" HBox.hgrow="ALWAYS">
+                        <VBox fx:id="playerListVBox" prefHeight="445.0" prefWidth="483.0" HBox.hgrow="ALWAYS">
 <!--                           <children>-->
 <!--                              <HBox alignment="CENTER" prefHeight="100.0" prefWidth="459.0" VBox.vgrow="ALWAYS">-->
 <!--                                 <children>-->

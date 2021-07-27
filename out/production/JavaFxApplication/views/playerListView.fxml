@@ -7,13 +7,13 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox fx:id="playerListVBox2" prefHeight="445.0" prefWidth="483.0" style="-fx-background-color: #001a33;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.PlayerListViewController">
+<VBox fx:id="playerListVBox2" prefHeight="445.0" prefWidth="483.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.PlayerListViewController">
    <children>
-      <HBox fx:id="playerListHBox" alignment="CENTER" prefHeight="100.0" prefWidth="483.0" style="-fx-background-color: #001a33;" VBox.vgrow="ALWAYS">
+      <HBox fx:id="playerListHBox" alignment="CENTER" prefHeight="100.0" prefWidth="483.0" VBox.vgrow="ALWAYS">
          <children>
-            <ScrollPane fx:id="scrollPane" prefHeight="445.0" prefWidth="470.0" style="-fx-background-color: #001a33;" stylesheets="@../styles/clubHomeWindow.css" HBox.hgrow="ALWAYS">
+            <ScrollPane fx:id="scrollPane" prefHeight="445.0" prefWidth="470.0" stylesheets="@../styles/clubHomeWindow.css" HBox.hgrow="ALWAYS">
                <content>
-                  <GridPane fx:id="gridPane" prefHeight="5.0" prefWidth="480.0" style="-fx-background-color: #001a33;">
+                  <GridPane fx:id="gridPane" prefHeight="5.0" prefWidth="480.0">
                      <columnConstraints>
                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                      </columnConstraints>

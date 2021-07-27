@@ -24,6 +24,18 @@
 
 #playerDetailsButton {
     -fx-background-radius: 30;
+    -fx-background-color: #248f24;
+    -fx-text-fill: white;
+}
+
+#playerSellButton {
+    -fx-background-radius: 30;
+    -fx-background-color: #990000;
+    -fx-text-fill: white;
+}
+
+#playerPriceLabel {
+    -fx-text-fill: white;
 }
 
 .Liverpool {

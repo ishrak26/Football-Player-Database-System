@@ -33,35 +33,35 @@
 }
 
 #leftVBox {
-    -fx-background-color: #202020;
+    -fx-background-color: #001a33;
 }
 
-#topBarHBox, #bottomBarHBox {
-    -fx-background-color: #001a33;
+#topBarHBox {
+    -fx-background-color: #990000;
+}
+
+#bottomBarHBox {
+    -fx-background-color: #004d4d;
 }
 
 #playerListVBox, #playerListHBox, #playerListVBox2 {
-    -fx-background-color: #001a33;
+    -fx-background-color: #404040;
 }
 
 #rightVBox {
-    -fx-background-color: #001a33;
+    -fx-background-color: #004d4d;
 }
 
 #countryLabel, #positionLabel, #ageLabel, #heightLabel, #salaryLabel {
     -fx-text-fill: white;
 }
 
-/*#gridPane, #scrollPane {*/
-/*    -fx-background-color: #001a33;*/
-/*}*/
-
 .scroll-pane > .viewport {
     -fx-background-color: transparent;
 }
 
 .scroll-pane {
-    -fx-background-color: #001a33;
+    -fx-background-color: #404040;
 }
 
 .scroll-bar:vertical {
@@ -77,10 +77,36 @@
     -fx-background-radius: 0.5em;
 }
 
-.tree-view .tree-cell {
+.tree-view, .tree-cell {
     -fx-background-color: #2eb8b8;
+    -fx-text-fill: white;
 }
 
-.tree-view {
-    -fx-background-color: #008080;
+.tree-cell:selected {
+    -fx-font-weight: bold ;
+}
+
+/*.tree-view {*/
+/*    -fx-background-color: #008080;*/
+/*}*/
+
+.menu-item .label {
+    -fx-text-fill: white;
+}
+
+.menu-item:focused {
+    -fx-background-color: darkgray;
+}
+
+.menu-item:focused .label {
+    -fx-text-fill: #003333;
+}
+
+.context-menu {
+    -fx-skin: "com.sun.javafx.scene.control.skin.ContextMenuSkin";
+    -fx-background-color: black;
+    -fx-background-insets: 0, 1, 2;
+    -fx-background-radius: 0 6 6 6, 0 5 5 5, 0 4 4 4;
+    /*    -fx-padding: 0.666667em 0.083333em 0.666667em 0.083333em;  8 1 8 1 */
+    -fx-padding: 0.333333em 0.083333em 0.666667em 0.083333em; /* 4 1 8 1 */
 }

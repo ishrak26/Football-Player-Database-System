@@ -9,6 +9,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane onMouseEntered="#showSellButton" onMouseExited="#hideSellButton" prefHeight="100.0" prefWidth="464.0" styleClass="root" stylesheets="@../styles/playerCard.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.PlayerCardController">
    <children>
@@ -49,7 +50,7 @@
                         <Insets left="10.0" />
                      </HBox.margin>
                   </Button>
-                  <Button fx:id="playerSellButton" mnemonicParsing="false" onAction="#sellPlayer" text="Sell" visible="false">
+                  <Button fx:id="playerSellButton" mnemonicParsing="false" onAction="#sellPlayer" text="Sell">
                      <HBox.margin>
                         <Insets left="15.0" />
                      </HBox.margin>
@@ -58,6 +59,9 @@
                      <HBox.margin>
                         <Insets left="15.0" />
                      </HBox.margin>
+                     <font>
+                        <Font name="Cambria" size="14.0" />
+                     </font>
                   </Label>
                </children>
             </HBox>
