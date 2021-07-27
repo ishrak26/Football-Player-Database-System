@@ -52,7 +52,15 @@
     -fx-text-fill: white;
 }
 
-#gridPane, #scrollPane {
+/*#gridPane, #scrollPane {*/
+/*    -fx-background-color: #001a33;*/
+/*}*/
+
+.scroll-pane > .viewport {
+    -fx-background-color: transparent;
+}
+
+.scroll-pane {
     -fx-background-color: #001a33;
 }
 
