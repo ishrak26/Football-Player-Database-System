@@ -6,17 +6,22 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="118.0" prefWidth="555.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.SaleConfirmationWindowController">
+<AnchorPane prefHeight="118.0" prefWidth="555.0" styleClass="root" stylesheets="@../styles/saleConfirmationWindow.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.SaleConfirmationWindowController">
    <children>
       <Label fx:id="playerNameLabel" layoutX="22.0" layoutY="23.0" text="Set a Selling Price for Pierre-Emerick Aubameyang" AnchorPane.leftAnchor="15.0">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <TextField fx:id="playerPriceTextField" alignment="CENTER" layoutX="334.0" layoutY="21.0" prefHeight="25.0" prefWidth="156.0" promptText="Type a real value. (in USD)" />
+      <TextField fx:id="playerPriceTextField" alignment="CENTER" layoutX="334.0" layoutY="21.0" prefHeight="25.0" prefWidth="156.0" promptText="Type a real value (in USD)" />
       <Button fx:id="priceClearButton" layoutX="498.0" layoutY="21.0" mnemonicParsing="false" onAction="#clearPriceTextField" text="Clear" AnchorPane.rightAnchor="15.0" />
-      <Button fx:id="confirmSaleButton" layoutX="194.0" layoutY="72.0" mnemonicParsing="false" onAction="#confirmSale" text="Confirm Sale" AnchorPane.leftAnchor="194.0" AnchorPane.rightAnchor="277.0" />
-      <Button fx:id="undoSaleButton" layoutX="299.0" layoutY="72.0" mnemonicParsing="false" onAction="#undoSale" text="Undo Sale" />
+      <Button fx:id="confirmSaleButton" layoutX="180.0" layoutY="72.0" mnemonicParsing="false" onAction="#confirmSale" prefHeight="30.0" prefWidth="102.0" text="Confirm Sale" AnchorPane.leftAnchor="180.0" AnchorPane.rightAnchor="273.0">
+         <font>
+            <Font size="14.0" />
+         </font></Button>
+      <Button fx:id="undoSaleButton" layoutX="299.0" layoutY="72.0" mnemonicParsing="false" onAction="#undoSale" text="Undo Sale">
+         <font>
+            <Font size="14.0" />
+         </font></Button>
    </children>
 </AnchorPane>

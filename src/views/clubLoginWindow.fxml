@@ -28,7 +28,7 @@
          <font>
             <Font size="14.0" />
          </font></Button>
-      <Label layoutX="221.0" layoutY="379.0" prefHeight="30.0" prefWidth="119.0" text="Not registered yet?">
+      <Label layoutX="221.0" layoutY="383.0" prefHeight="30.0" prefWidth="119.0" style="-fx-text-fill: #ff3300;" text="Not registered yet?" textFill="#ff3300">
          <font>
             <Font size="14.0" />
          </font>

@@ -115,7 +115,7 @@ public class Client extends Application {
                     Alert a = new Alert(Alert.AlertType.ERROR);
                     a.setTitle("Error");
                     a.setHeaderText("Login window");
-                    a.setContentText("Login is unsuccessful");
+                    a.setContentText("Login is unsuccessful.\nClub session may already be in progress.");
                     a.showAndWait();
                 }
             }
@@ -140,7 +140,7 @@ public class Client extends Application {
                 } else {
                     a.setAlertType(Alert.AlertType.ERROR);
                     a.setTitle("Error");
-                    a.setContentText("Registration is unsuccessful");
+                    a.setContentText("Registration is unsuccessful.\nClub may have already been registered.");
                 }
                 a.showAndWait();
                 showLoginPage();
@@ -163,7 +163,7 @@ public class Client extends Application {
                     Alert a = new Alert(Alert.AlertType.ERROR);
                     a.setTitle("Error");
                     a.setHeaderText("Logout window");
-                    a.setContentText("Logout is unsuccessful");
+                    a.setContentText("Logout is unsuccessful.");
                     a.showAndWait();
                 }
             }
@@ -203,7 +203,7 @@ public class Client extends Application {
                     Alert a = new Alert(Alert.AlertType.ERROR);
                     a.setTitle("Error");
                     a.setHeaderText(playerName);
-                    a.setContentText("Player is unavailable!");
+                    a.setContentText("Player is unavailable!\nThis player may have already been bought.");
                     a.showAndWait();
                 }
                 return b;

@@ -1,0 +1,32 @@
+.root {
+    -fx-background-color: #262626;
+}
+
+.label {
+    -fx-text-fill: #e6e6e6;
+}
+
+.button {
+    -fx-background-radius: 15;
+}
+
+.text-field {
+    -fx-background-radius: 20;
+    -fx-background-color: #666666;
+    -fx-text-fill: white;
+}
+
+#confirmSaleButton {
+    -fx-background-color: #cc0000;
+    -fx-text-fill: white;
+}
+
+#undoSaleButton {
+    -fx-background-color: #00802b;
+    -fx-text-fill: white;
+}
+
+#priceClearButton {
+    -fx-background-color: #e68a00;
+    -fx-text-fill: white;
+}
