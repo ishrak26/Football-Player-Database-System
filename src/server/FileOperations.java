@@ -1,4 +1,4 @@
-package home;
+package server;
 
 import data.database.Database;
 import data.database.Player;

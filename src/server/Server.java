@@ -2,7 +2,6 @@ package server;
 
 import data.database.Database;
 import data.database.Player;
-import home.FileOperations;
 import util.NetworkUtil;
 
 import java.io.IOException;
@@ -11,8 +10,6 @@ import java.net.Socket;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Optional;
-import java.util.stream.Collectors;
 
 public class Server {
     volatile Database db;
