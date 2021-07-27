@@ -22,7 +22,7 @@
    <children>
       <BorderPane prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <left>
-            <VBox prefHeight="600.0" prefWidth="334.0" BorderPane.alignment="CENTER">
+            <VBox fx:id="leftVBox" prefHeight="600.0" prefWidth="334.0" BorderPane.alignment="CENTER">
                <children>
                   <HBox alignment="CENTER" prefHeight="215.0" prefWidth="334.0">
                      <children>
@@ -66,7 +66,7 @@
                         </Label>
                      </children>
                   </HBox>
-                  <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="334.0">
+                  <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="334.0" visible="false">
                      <children>
                         <Label text="Remaining Budget:">
                            <font>
@@ -98,7 +98,7 @@
                <children>
                   <HBox fx:id="topBarHBox" alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                      <children>
-                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="451.0" HBox.hgrow="ALWAYS">
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="466.0" HBox.hgrow="ALWAYS">
                            <children>
                               <TextField fx:id="searchPlayerNameTextField" prefWidth="200.0" promptText="Type Player's Name...">
                                  <HBox.margin>
@@ -155,9 +155,9 @@
                         </HBox>
                      </children>
                   </HBox>
-                  <HBox fx:id="listPlayerHBox" prefHeight="100.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+                  <HBox fx:id="listPlayerHBox" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #001a33;" VBox.vgrow="ALWAYS">
                      <children>
-                        <VBox fx:id="playerListVBox" prefHeight="445.0" prefWidth="483.0" HBox.hgrow="ALWAYS">
+                        <VBox fx:id="playerListVBox" prefHeight="445.0" prefWidth="483.0" style="-fx-background-color: #001a33;" HBox.hgrow="ALWAYS">
 <!--                           <children>-->
 <!--                              <HBox alignment="CENTER" prefHeight="100.0" prefWidth="459.0" VBox.vgrow="ALWAYS">-->
 <!--                                 <children>-->
@@ -177,7 +177,7 @@
 <!--                              </HBox>-->
 <!--                           </children>-->
                         </VBox>
-                        <VBox alignment="TOP_CENTER" prefHeight="445.0" prefWidth="232.0" HBox.hgrow="ALWAYS">
+                        <VBox fx:id="rightVBox" alignment="TOP_CENTER" prefHeight="445.0" prefWidth="232.0" HBox.hgrow="ALWAYS">
                            <children>
                               <AnchorPane prefHeight="151.0" prefWidth="208.0" VBox.vgrow="ALWAYS">
                                  <children>
@@ -190,7 +190,7 @@
                                           </TreeView>
                                        </children>
                                     </HBox>
-                                    <Label layoutX="14.0" layoutY="6.0" text="Country" AnchorPane.leftAnchor="15.0" />
+                                    <Label fx:id="countryLabel" layoutX="14.0" layoutY="6.0" text="Country" AnchorPane.leftAnchor="15.0" />
                                  </children>
                                  <VBox.margin>
                                     <Insets />
@@ -207,7 +207,7 @@
                                           </TreeView>
                                        </children>
                                     </HBox>
-                                    <Label layoutX="14.0" layoutY="6.0" text="Position" AnchorPane.leftAnchor="15.0" />
+                                    <Label fx:id="positionLabel" layoutX="14.0" layoutY="6.0" text="Position" AnchorPane.leftAnchor="15.0" />
                                  </children>
                                  <VBox.margin>
                                     <Insets />
@@ -215,15 +215,15 @@
                               </AnchorPane>
                               <AnchorPane prefHeight="140.0" prefWidth="208.0" VBox.vgrow="ALWAYS">
                                  <children>
-                                    <Label layoutX="14.0" layoutY="14.0" text="Age" />
-                                    <Label layoutX="14.0" layoutY="62.0" text="Height" />
-                                    <Label layoutX="14.0" layoutY="108.0" text="Salary" />
-                                    <TextField fx:id="ageFromTextField" layoutX="66.0" layoutY="10.0" prefHeight="25.0" prefWidth="85.0" promptText="From (years)" />
-                                    <TextField fx:id="ageToTextField" layoutX="172.0" layoutY="10.0" prefHeight="25.0" prefWidth="85.0" promptText="To (years)" AnchorPane.rightAnchor="15.0" />
-                                    <TextField fx:id="heightFromTextField" layoutX="66.0" layoutY="58.0" prefHeight="25.0" prefWidth="85.0" promptText="From (meters)" />
-                                    <TextField fx:id="salaryFromTextField" layoutX="66.0" layoutY="104.0" prefHeight="25.0" prefWidth="85.0" promptText="From" />
-                                    <TextField fx:id="heightToTextField" layoutX="166.0" layoutY="58.0" prefHeight="25.0" prefWidth="85.0" promptText="To" AnchorPane.rightAnchor="15.0" />
-                                    <TextField fx:id="salaryToTextField" layoutX="137.0" layoutY="104.0" prefHeight="25.0" prefWidth="85.0" promptText="To" AnchorPane.rightAnchor="15.0" />
+                                    <Label fx:id="ageLabel" layoutX="14.0" layoutY="14.0" text="Age" />
+                                    <Label fx:id="heightLabel" layoutX="14.0" layoutY="62.0" text="Height" />
+                                    <Label fx:id="salaryLabel" layoutX="14.0" layoutY="108.0" text="Salary" />
+                                    <TextField fx:id="ageFromTextField" layoutX="66.0" layoutY="10.0" prefHeight="25.0" prefWidth="89.0" promptText="From (years)" />
+                                    <TextField fx:id="ageToTextField" layoutX="172.0" layoutY="10.0" prefHeight="25.0" prefWidth="78.0" promptText="To (years)" AnchorPane.rightAnchor="15.0" />
+                                    <TextField fx:id="heightFromTextField" layoutX="66.0" layoutY="58.0" prefHeight="25.0" prefWidth="89.0" promptText="From (meters)" />
+                                    <TextField fx:id="salaryFromTextField" layoutX="66.0" layoutY="104.0" prefHeight="25.0" prefWidth="89.0" promptText="From (USD)" />
+                                    <TextField fx:id="heightToTextField" layoutX="166.0" layoutY="58.0" prefHeight="25.0" prefWidth="78.0" promptText="To (meters)" AnchorPane.rightAnchor="15.0" />
+                                    <TextField fx:id="salaryToTextField" layoutX="137.0" layoutY="104.0" prefHeight="25.0" prefWidth="78.0" promptText="To (USD)" AnchorPane.rightAnchor="15.0" />
                                  </children>
                                  <VBox.margin>
                                     <Insets top="10.0" />

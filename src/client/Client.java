@@ -59,7 +59,6 @@ public class Client extends Application {
         Parent root = fxmlLoader.load();
 
         ClubHomeWindowController controller = fxmlLoader.getController();
-//        controller.setClubName(clubName);
         controller.init(this, clubName);
 
         Scene scene = new Scene(root);
@@ -175,7 +174,6 @@ public class Client extends Application {
 
     public boolean sellPlayer(String playerName, double playerPrice) {
         try {
-//            networkUtil.write(new Message(MessageHeader.SELL, playerName));
             networkUtil.write(new SaleInfo(MessageHeader.SELL, playerName, playerPrice));
             Object obj = networkUtil.read();
             if (obj instanceof Boolean) {
@@ -246,8 +244,6 @@ public class Client extends Application {
         try {
             networkUtil.write(new Message(MessageHeader.TRANSFER_WINDOW, null));
             Object obj = networkUtil.read();
-//            System.out.println("Read from server:");
-//            System.out.println(obj);
             if (obj instanceof List) {
                 return (List<?>) obj;
             }

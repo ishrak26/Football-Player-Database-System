@@ -1,5 +1,5 @@
 .window {
-    /*-fx-background-color: #202020;*/
+    -fx-background-color: #4d4d4d;
     /*-fx-text-fill: #202020;*/
 }
 
@@ -11,4 +11,68 @@
 
 .transparent {
     -fx-background-color: rgba(0, 0, 0, 0);
+}
+
+.button {
+    -fx-background-radius: 30;
+}
+
+#searchPlayerNameTextField {
+    -fx-background-radius: 100;
+
+}
+
+#searchPlayerNameButton, #applyFiltersButton {
+    -fx-background-color: #248f24;
+    -fx-text-fill: white;
+}
+
+#resetPlayerNameButton, #resetFiltersButton {
+    -fx-background-color: #e68a00;
+    -fx-text-fill: white;
+}
+
+#leftVBox {
+    -fx-background-color: #202020;
+}
+
+#topBarHBox, #bottomBarHBox {
+    -fx-background-color: #001a33;
+}
+
+#playerListVBox, #playerListHBox, #playerListVBox2 {
+    -fx-background-color: #001a33;
+}
+
+#rightVBox {
+    -fx-background-color: #001a33;
+}
+
+#countryLabel, #positionLabel, #ageLabel, #heightLabel, #salaryLabel {
+    -fx-text-fill: white;
+}
+
+#gridPane, #scrollPane {
+    -fx-background-color: #001a33;
+}
+
+.scroll-bar:vertical {
+    -fx-background-color: #404040;
+}
+
+.scroll-bar:vertical .thumb {
+    -fx-background-color:
+            #a6a6a6,
+            linear-gradient(to right, derive( #a6a6a6,95%), derive( #a6a6a6,10%)),
+            linear-gradient(to right, derive( #a6a6a6,38%), derive(#a6a6a6,-16%));
+    -fx-background-insets: 0, 1, 2;
+    -fx-background-radius: 0.5em;
+}
+
+.tree-view .tree-cell {
+    -fx-background-color: #2eb8b8;
+}
+
+.tree-view {
+    -fx-background-color: #008080;
 }

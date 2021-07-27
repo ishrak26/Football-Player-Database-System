@@ -21,3 +21,27 @@
     -fx-border-width: 1px;
     -fx-border-color: white;
 }
+
+#playerDetailsButton {
+    -fx-background-radius: 30;
+}
+
+.Liverpool {
+    -fx-background-color: #C8102E;
+}
+
+.Chelsea {
+    -fx-background-color: #034694;
+}
+
+.Arsenal {
+    -fx-background-color: #EF0107;
+}
+
+.Manchester_United {
+    -fx-background-color: #DA291C;
+}
+
+.Manchester_City {
+    -fx-background-color: #5a9fd8;
+}

@@ -413,11 +413,6 @@ public class ClubHomeWindowController {
 
             this.playerListOnDisplay = new ArrayList<>(playerList);
 
-//            System.out.println("The list of players is: ");
-//            for (Player player:
-//                 playerList) {
-//                System.out.println(player.getName());
-//            }
         } catch (IOException e) {
             e.printStackTrace();
         }

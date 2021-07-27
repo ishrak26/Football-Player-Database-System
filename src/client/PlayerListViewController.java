@@ -39,6 +39,7 @@ public class PlayerListViewController {
                 playerCardController.setClubHomeWindowController(this.clubHomeWindowController);
 
                 gridPane.add(card, col, row++);
+                card.getStyleClass().add(player.getClub().replace(' ', '_'));
 
                 //set grid width
                 gridPane.setMinWidth(Region.USE_COMPUTED_SIZE);
