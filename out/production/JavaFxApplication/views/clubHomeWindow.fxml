@@ -88,7 +88,10 @@
                      </padding></HBox>
                   <HBox alignment="CENTER" layoutX="10.0" layoutY="245.0" prefHeight="154.0" prefWidth="334.0">
                      <children>
-                        <Button fx:id="buyPlayerButton" mnemonicParsing="false" onAction="#showTransferWindow" text="Buy Player" />
+                        <Button fx:id="buyPlayerButton" mnemonicParsing="false" onAction="#showTransferWindow" text="Buy Player">
+                           <font>
+                              <Font size="24.0" />
+                           </font></Button>
                      </children></HBox>
                </children>
             </VBox>
@@ -104,23 +107,35 @@
                                  <HBox.margin>
                                     <Insets right="10.0" />
                                  </HBox.margin>
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
                               </TextField>
                               <Button fx:id="searchPlayerNameButton" mnemonicParsing="false" onAction="#searchPlayerByName" text="Search">
                                  <HBox.margin>
                                     <Insets right="10.0" />
-                                 </HBox.margin></Button>
-                              <Button fx:id="resetPlayerNameButton" mnemonicParsing="false" onAction="#resetPlayerNameTextField" text="Clear" />
+                                 </HBox.margin>
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font></Button>
+                              <Button fx:id="resetPlayerNameButton" mnemonicParsing="false" onAction="#resetPlayerNameTextField" text="Clear">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font></Button>
                            </children>
                            <padding>
                               <Insets left="10.0" right="10.0" />
                            </padding></HBox>
                         <Pane prefHeight="100.0" prefWidth="64.0" HBox.hgrow="ALWAYS" />
-                        <HBox fx:id="refreshRateHBox" alignment="CENTER" prefHeight="100.0" prefWidth="192.0" visible="false">
+                        <HBox fx:id="refreshRateHBox" alignment="CENTER" prefHeight="100.0" prefWidth="211.0" visible="false">
                            <children>
-                              <Label text="Refresh Every:">
+                              <Label text="Refresh Every:" textFill="WHITE">
                                  <HBox.margin>
                                     <Insets right="10.0" />
                                  </HBox.margin>
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
                               </Label>
                               <ChoiceBox fx:id="refreshRateChoiceBox" prefHeight="25.0" prefWidth="87.0" />
                            </children>
@@ -144,12 +159,15 @@
                                             </items>
                                           </MenuButton>
                                        </content></SeparatorMenuItem>
-                                  <MenuItem mnemonicParsing="false" text="Change Password" />
+                                  <MenuItem mnemonicParsing="false" text="Change Password" visible="false" />
                                     <MenuItem mnemonicParsing="false" onAction="#logoutClub" text="Sign out" />
                                 </items>
                                  <HBox.margin>
                                     <Insets right="15.0" />
                                  </HBox.margin>
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
                               </MenuButton>
                            </children>
                         </HBox>
@@ -237,11 +255,17 @@
                                              <HBox.margin>
                                                 <Insets right="5.0" />
                                              </HBox.margin>
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
                                           </Button>
                                           <Button fx:id="resetFiltersButton" contentDisplay="CENTER" mnemonicParsing="false" onAction="#resetFilters" text="Reset Filters" textAlignment="CENTER">
                                              <HBox.margin>
                                                 <Insets left="5.0" />
                                              </HBox.margin>
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
                                           </Button>
                                        </children>
                                     </HBox>

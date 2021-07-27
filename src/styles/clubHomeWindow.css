@@ -110,3 +110,33 @@
     /*    -fx-padding: 0.666667em 0.083333em 0.666667em 0.083333em;  8 1 8 1 */
     -fx-padding: 0.333333em 0.083333em 0.666667em 0.083333em; /* 4 1 8 1 */
 }
+
+.text-field {
+    -fx-background-color: #262626;
+    -fx-text-fill: white;
+    -fx-background-radius: 10;
+}
+
+#buyPlayerButton {
+    -fx-background-color: #004d1a;
+    -fx-text-fill: white;
+}
+
+/*Background color of the whole context menu*/
+.choice-box .context-menu { -fx-background-color: black; }
+/* Focused item background color in the list*/
+.choice-box .menu-item:focused { -fx-background-color: #009999; }
+/*Text color of non-focused items in the list*/
+.choice-box .menu-item > .label { -fx-text-fill: white; }
+/*Text color of focused item in the list*/
+.choice-box .menu-item:focused > .label { -fx-text-fill: black; }
+
+/*Background color of the control itself*/
+.choice-box {
+    -fx-background-color: black;
+    -fx-mark-color: #009999; /*arrow color*/
+    -fx-text-fill: black;
+}
+
+/*Selected item text color on the control itself*/
+.choice-box > .label { -fx-text-fill: #999999; }

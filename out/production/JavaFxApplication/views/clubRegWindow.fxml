@@ -7,14 +7,14 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="448.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.ClubRegWindowController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="448.0" prefWidth="600.0" styleClass="root" stylesheets="@../styles/clubLoginWindow.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.ClubRegWindowController">
     <children>
-        <Label layoutX="151.0" layoutY="78.0" text="FOOTBALL PLAYER">
+        <Label layoutX="158.0" layoutY="78.0" styleClass="title" stylesheets="@../styles/clubLoginWindow.css" text="FOOTBALL PLAYER">
             <font>
                 <Font size="36.0" />
             </font>
         </Label>
-        <Label layoutX="146.0" layoutY="139.0" text="DATABASE SYSTEM">
+        <Label layoutX="146.0" layoutY="139.0" styleClass="title" stylesheets="@../styles/clubLoginWindow.css" text="DATABASE SYSTEM">
             <font>
                 <Font size="36.0" />
             </font>

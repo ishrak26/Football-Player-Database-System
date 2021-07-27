@@ -1,0 +1,56 @@
+.title {
+    -fx-font-family: Impact;
+    -fx-font-size: 34pt;
+    -fx-text-fill: #e6e6e6;
+}
+
+.root {
+    -fx-background-color: #262626;
+}
+
+.label {
+    -fx-text-fill: #f2f2f2;
+}
+
+/*Background color of the whole context menu*/
+.choice-box .context-menu { -fx-background-color: black; }
+/* Focused item background color in the list*/
+.choice-box .menu-item:focused { -fx-background-color: #009999; }
+/*Text color of non-focused items in the list*/
+.choice-box .menu-item > .label { -fx-text-fill: white; }
+/*Text color of focused item in the list*/
+.choice-box .menu-item:focused > .label { -fx-text-fill: black; }
+
+/*Background color of the control itself*/
+.choice-box {
+   -fx-background-color: black;
+   -fx-mark-color: #009999; /*arrow color*/
+    -fx-text-fill: black;
+}
+
+/*Selected item text color on the control itself*/
+.choice-box > .label { -fx-text-fill: #999999; }
+
+#userNameLabel {
+    -fx-font-family: Rockwell;
+}
+
+.button {
+    -fx-background-radius: 15;
+}
+
+.password-field {
+    -fx-background-color: #333333;
+    -fx-text-fill: white;
+    -fx-background-radius: 10;
+}
+
+#loginButton, #registerButton {
+    -fx-background-color: #00802b;
+    -fx-text-fill: white;
+}
+
+#resetButton {
+    -fx-background-color: #e68a00;
+    -fx-text-fill: white;
+}

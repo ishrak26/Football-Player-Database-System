@@ -7,27 +7,27 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="448.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.ClubLoginWindowController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="448.0" prefWidth="600.0" styleClass="root" stylesheets="@../styles/clubLoginWindow.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.ClubLoginWindowController">
    <children>
-      <Label layoutX="151.0" layoutY="78.0" text="FOOTBALL PLAYER">
+      <Label fx:id="titleLabelFirstLine" layoutX="158.0" layoutY="78.0" styleClass="title" stylesheets="@../styles/clubLoginWindow.css" text="FOOTBALL PLAYER">
          <font>
             <Font size="36.0" />
          </font>
       </Label>
-      <Label layoutX="146.0" layoutY="139.0" text="DATABASE SYSTEM">
+      <Label fx:id="TitleLabelSecondLine" layoutX="146.0" layoutY="139.0" styleClass="title" stylesheets="@../styles/clubLoginWindow.css" text="DATABASE SYSTEM">
          <font>
             <Font size="36.0" />
          </font>
       </Label>
       <PasswordField fx:id="passwordTextField" alignment="CENTER" layoutX="262.0" layoutY="272.0" promptText="Password" />
-      <Button fx:id="loginButton" layoutX="227.0" layoutY="328.0" mnemonicParsing="false" onAction="#login" text="Sign in" />
-      <Button fx:id="resetButton" layoutX="324.0" layoutY="328.0" mnemonicParsing="false" onAction="#reset" text="Reset" />
-      <Label layoutX="205.0" layoutY="379.0" prefHeight="30.0" prefWidth="119.0" text="Not registered yet?">
+      <Button fx:id="loginButton" layoutX="261.0" layoutY="328.0" mnemonicParsing="false" onAction="#login" text="Sign in" />
+      <Button fx:id="resetButton" layoutX="365.0" layoutY="328.0" mnemonicParsing="false" onAction="#reset" text="Reset" />
+      <Label layoutX="221.0" layoutY="379.0" prefHeight="30.0" prefWidth="119.0" text="Not registered yet?">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Button fx:id="registerButton" layoutX="336.0" layoutY="379.0" mnemonicParsing="false" onAction="#register" text="Sign up" />
+      <Button fx:id="registerButton" layoutX="353.0" layoutY="382.0" mnemonicParsing="false" onAction="#register" text="Sign up" />
       <ChoiceBox fx:id="usernameChoiceBox" layoutX="261.0" layoutY="231.0" prefWidth="150.0" />
       <Label layoutX="185.0" layoutY="234.0" text="Username">
          <font>
