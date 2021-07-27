@@ -115,7 +115,8 @@ public class Client extends Application {
                     Alert a = new Alert(Alert.AlertType.ERROR);
                     a.setTitle("Error");
                     a.setHeaderText("Login window");
-                    a.setContentText("Login is unsuccessful.\nClub session may already be in progress.");
+                    a.setContentText("Login is unsuccessful.\nClub session may already be in progress.\n" +
+                            "Or, registration of this club has not been completed yet.");
                     a.showAndWait();
                 }
             }

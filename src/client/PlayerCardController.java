@@ -116,7 +116,7 @@ public class PlayerCardController {
 
     @FXML
     public void selectPlayer(MouseEvent event) {
-        System.out.println(this.player.getName());
+//        System.out.println(this.player.getName());
 //        playerSellButton.setVisible(true);
     }
 

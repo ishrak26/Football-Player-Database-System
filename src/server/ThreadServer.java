@@ -74,7 +74,7 @@ public class ThreadServer implements Runnable {
         } finally {
             try {
                 networkUtil.closeConnection();
-                System.out.println("Disconnected successfully");
+//                System.out.println("Disconnected successfully");
             } catch (IOException e) {
                     e.printStackTrace();
             }

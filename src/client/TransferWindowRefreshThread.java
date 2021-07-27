@@ -16,7 +16,7 @@ public class TransferWindowRefreshThread implements Runnable {
     public void run() {
         while (true) {
             try {
-                System.out.println("inside thread");
+//                System.out.println("inside thread");
                 Platform.runLater(() -> clubHomeWindowController.loadTransferWindow());
                 Thread.sleep(clubHomeWindowController.getRefreshRate() * 1000L);
             } catch (InterruptedException e) {
@@ -24,7 +24,7 @@ public class TransferWindowRefreshThread implements Runnable {
                 break;
             }
         }
-        System.out.println("thread is closing");
+//        System.out.println("thread is closing");
     }
 
     public Thread getThread() {

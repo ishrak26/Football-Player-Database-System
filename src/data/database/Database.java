@@ -212,9 +212,9 @@ public class Database {
     public void showCountryCount() {
         for (Country c: countryList
         ) {
-            System.out.println(c);
+//            System.out.println(c);
         }
-        System.out.println();
+//        System.out.println();
     }
 
     public List<Player> searchPlayerByAge(int lo, int hi) {
