@@ -32,11 +32,11 @@
 .choice-box > .label { -fx-text-fill: #999999; }
 
 #userNameLabel {
-    -fx-font-family: Copperplate Gothic Light;
+    -fx-font-family: Rockwell;
 }
 
 .button {
-    -fx-background-radius: 30;
+    -fx-background-radius: 15;
 }
 
 .password-field {

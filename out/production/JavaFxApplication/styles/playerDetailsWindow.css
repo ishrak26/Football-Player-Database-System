@@ -1,0 +1,16 @@
+.root {
+    -fx-background-color: #262626;
+}
+
+.label {
+    -fx-text-fill: #e6e6e6;
+}
+
+#playerNameLabel {
+    -fx-font-family: Rockwell;
+
+}
+
+#countryLabel {
+    -fx-font-family: Cambria;
+}

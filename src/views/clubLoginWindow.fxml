@@ -20,14 +20,23 @@
          </font>
       </Label>
       <PasswordField fx:id="passwordTextField" alignment="CENTER" layoutX="262.0" layoutY="272.0" promptText="Password" />
-      <Button fx:id="loginButton" layoutX="261.0" layoutY="328.0" mnemonicParsing="false" onAction="#login" text="Sign in" />
-      <Button fx:id="resetButton" layoutX="365.0" layoutY="328.0" mnemonicParsing="false" onAction="#reset" text="Reset" />
+      <Button fx:id="loginButton" layoutX="261.0" layoutY="328.0" mnemonicParsing="false" onAction="#login" text="Sign in">
+         <font>
+            <Font size="14.0" />
+         </font></Button>
+      <Button fx:id="resetButton" layoutX="365.0" layoutY="328.0" mnemonicParsing="false" onAction="#reset" text="Reset">
+         <font>
+            <Font size="14.0" />
+         </font></Button>
       <Label layoutX="221.0" layoutY="379.0" prefHeight="30.0" prefWidth="119.0" text="Not registered yet?">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Button fx:id="registerButton" layoutX="353.0" layoutY="382.0" mnemonicParsing="false" onAction="#register" text="Sign up" />
+      <Button fx:id="registerButton" layoutX="353.0" layoutY="382.0" mnemonicParsing="false" onAction="#register" text="Sign up">
+         <font>
+            <Font size="14.0" />
+         </font></Button>
       <ChoiceBox fx:id="usernameChoiceBox" layoutX="261.0" layoutY="231.0" prefWidth="150.0" />
       <Label layoutX="185.0" layoutY="234.0" text="Username">
          <font>

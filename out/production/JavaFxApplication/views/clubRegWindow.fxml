@@ -20,8 +20,14 @@
             </font>
         </Label>
         <PasswordField fx:id="passwordTextField" alignment="CENTER" layoutX="294.0" layoutY="273.0" promptText="Password" />
-        <Button fx:id="resetButton" layoutX="324.0" layoutY="368.0" mnemonicParsing="false" onAction="#reset" text="Reset" />
-        <Button fx:id="registerButton" layoutX="244.0" layoutY="368.0" mnemonicParsing="false" onAction="#register" text="Sign up" />
+        <Button fx:id="resetButton" layoutX="391.0" layoutY="368.0" mnemonicParsing="false" onAction="#reset" text="Reset">
+         <font>
+            <Font size="14.0" />
+         </font></Button>
+        <Button fx:id="registerButton" layoutX="294.0" layoutY="368.0" mnemonicParsing="false" onAction="#register" text="Sign up">
+         <font>
+            <Font size="14.0" />
+         </font></Button>
         <Label layoutX="162.0" layoutY="234.0" text="Username">
             <font>
                 <Font size="14.0" />

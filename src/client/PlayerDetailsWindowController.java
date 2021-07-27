@@ -45,8 +45,9 @@ public class PlayerDetailsWindowController implements Initializable {
         playerPositionLabel.setText(player.getPosition());
         playerClubLabel.setText(player.getClub());
         playerCountryLabel.setText(player.getCountry());
-        playerAgeLabel.setText("Age: " + player.getAge());
-        playerHeightLabel.setText("Height: " + player.getHeight());
+        playerCountryLabel.setStyle("-fx-font-family: Cambria");
+        playerAgeLabel.setText("Age: " + player.getAge() + " years");
+        playerHeightLabel.setText("Height: " + player.getHeight() + " meters");
         playerNumberLabel.setText("Number: " + player.getNumber());
         playerSalaryLabel.setText("Weekly Salary: " + String.format("%,.2f", player.getSalary()) + " USD");
     }

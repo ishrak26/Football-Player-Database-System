@@ -9,8 +9,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="239.0" prefWidth="588.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.PlayerDetailsWindowController">
+<AnchorPane prefHeight="239.0" prefWidth="588.0" styleClass="root" stylesheets="@../styles/playerDetailsWindow.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.PlayerDetailsWindowController">
    <children>
       <ImageView fx:id="playerImage" fitHeight="150.0" fitWidth="161.0" layoutX="408.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="14.0">
          <image>
@@ -19,12 +18,12 @@
       </ImageView>
       <Label fx:id="playerNameLabel" layoutX="14.0" layoutY="14.0" text="Pierre-Emerick Aubameyang" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="14.0">
          <font>
-            <Font size="36.0" />
+            <Font size="33.0" />
          </font>
       </Label>
       <Label fx:id="playerPositionLabel" layoutX="14.0" layoutY="58.0" text="Goalkeeper" AnchorPane.leftAnchor="14.0">
          <font>
-            <Font size="24.0" />
+            <Font name="Impact" size="24.0" />
          </font>
       </Label>
       <Label fx:id="playerAgeLabel" layoutX="14.0" layoutY="180.0" text="Age: 28 years" AnchorPane.leftAnchor="14.0">
@@ -46,7 +45,7 @@
          <children>
             <Label fx:id="playerClubLabel" text="Manchester United">
                <font>
-                  <Font size="18.0" />
+                  <Font name="Cambria" size="18.0" />
                </font>
                <HBox.margin>
                   <Insets right="10.0" />
